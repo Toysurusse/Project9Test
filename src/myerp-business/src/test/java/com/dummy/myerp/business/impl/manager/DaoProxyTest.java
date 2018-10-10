@@ -14,7 +14,6 @@ public class DaoProxyTest implements DaoProxy {
         this.comptabiliteDao = comptabiliteDao;
     }
 
-
     @Override
     public ComptabiliteDao getComptabiliteDao() {
         return comptabiliteDao;
