@@ -65,7 +65,7 @@ public class ComptabiliteManagerImplTest {
 
     @Test
     public void checkEcritureComptableContext() {
-        String exception = manager.RG6_EXCEPTION;
+        String exception = ComptabiliteManagerImpl.RG6_EXCEPTION;
 
         // id == null
         try {
@@ -96,7 +96,9 @@ public class ComptabiliteManagerImplTest {
         vEcritureComptable.setReference(null);
         manager.checkEcritureComptableUnit(vEcritureComptable);
 
-        vEcritureComptable.setReference("AC-" + vEcritureComptable.getDate().toString().substring(25, 29) + "/00022");
+        Calendar calendar = new GregorianCalendar();
+        calendar.setTime(vEcritureComptable.getDate());
+        vEcritureComptable.setReference("AC-" + calendar.get(Calendar.YEAR) + "/00022");
         manager.checkEcritureComptableUnit(vEcritureComptable);
     }
 
@@ -158,7 +160,7 @@ public class ComptabiliteManagerImplTest {
         thrown.expect(FunctionalException.class);
         thrown.expectMessage(ComptabiliteManagerImpl.RG5_DATE_EXCEPTION);
 
-        vEcritureComptable.setReference("AC-1963/00022");
+        vEcritureComptable.setReference("AC-1967/00022");
 
         manager.checkEcritureComptableUnit(vEcritureComptable);
     }
