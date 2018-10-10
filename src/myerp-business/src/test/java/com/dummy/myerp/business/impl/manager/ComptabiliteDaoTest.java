@@ -1,6 +1,8 @@
 package com.dummy.myerp.business.impl.manager;
 import java.math.BigDecimal;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 import com.dummy.myerp.consumer.dao.contrat.ComptabiliteDao;
 import com.dummy.myerp.model.bean.comptabilite.CompteComptable;
@@ -41,7 +43,9 @@ public class ComptabiliteDaoTest implements ComptabiliteDao {
         vEcritureComptable.setId(22);
         vEcritureComptable.setJournal(new JournalComptable("AC", "Achat"));
         vEcritureComptable.setDate(new Date());
-        vEcritureComptable.setReference("AC-" + vEcritureComptable.getDate().toString().substring(25, 29) + "/00022");
+        Calendar calendar = new GregorianCalendar();
+        calendar.setTime(vEcritureComptable.getDate());
+        vEcritureComptable.setReference("AC-" + calendar.get(Calendar.YEAR) + "/00022");
         vEcritureComptable.setLibelle("Libelle");
         vEcritureComptable.getListLigneEcriture()
                 .add(new LigneEcritureComptable(new CompteComptable(1), null, new BigDecimal(123), null));
