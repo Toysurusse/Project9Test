@@ -1,6 +1,8 @@
 package com.dummy.myerp.business.impl.manager;
 
 import java.math.BigDecimal;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Set;
 import javax.validation.ConstraintViolation;
@@ -137,7 +139,9 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
         // vérifier que l'année dans la référence correspond bien à la date de l'écriture, idem pour le code journal...
 
         if (pEcritureComptable.getReference() != null) {
-            if (!pEcritureComptable.getReference().substring(3, 7).equals(pEcritureComptable.getDate().toString().substring(25, 29))) {
+            Calendar calendar = new GregorianCalendar();
+            calendar.setTime(pEcritureComptable.getDate());
+            if (!pEcritureComptable.getReference().substring(3, 7).equals(Integer.toString(calendar.get(Calendar.YEAR)))) {
                 throw new FunctionalException(RG5_DATE_EXCEPTION);
             }
 

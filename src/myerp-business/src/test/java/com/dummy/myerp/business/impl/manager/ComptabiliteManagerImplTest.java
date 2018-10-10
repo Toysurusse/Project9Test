@@ -149,7 +149,9 @@ public class ComptabiliteManagerImplTest {
         thrown.expect(FunctionalException.class);
         thrown.expectMessage(ComptabiliteManagerImpl.RG5_CODE_EXCEPTION);
 
-        vEcritureComptable.setReference("AV-" + vEcritureComptable.getDate().toString().substring(25, 29) + "/00022");
+        Calendar calendar = new GregorianCalendar();
+        calendar.setTime(vEcritureComptable.getDate());
+        vEcritureComptable.setReference("AV-" + calendar.get(Calendar.YEAR) + "/00022");
 
         manager.checkEcritureComptableUnit(vEcritureComptable);
     }
