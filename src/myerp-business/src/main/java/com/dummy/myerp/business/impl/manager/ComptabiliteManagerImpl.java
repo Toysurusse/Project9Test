@@ -30,7 +30,7 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
             RG5_CODE_EXCEPTION = "Le code journal doit être le même dans la référence",
             RG5_DATE_EXCEPTION = "La date de l'écriture comptable doit être la même dans la référence",
             VIOLATION_EXCEPTION = "L'écriture comptable ne respecte pas les règles de gestion.",
-            RG6_EXCEPTION ="La référence d'une écriture comptable doit être unique, il n'est pas possible de créer plusieurs écritures ayant la même référence.";
+            RG6_EXCEPTION ="La référence d'une écriture comptable doit être unique.";
     // ==================== Constructeurs ====================
 
     /**
@@ -169,7 +169,7 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
                 // c'est qu'il y a déjà une autre écriture avec la même référence
                 if (pEcritureComptable.getId() == null
                         || !pEcritureComptable.getId().equals(vECRef.getId())) {
-                    throw new FunctionalException("La référence d'une écriture comptable doit être unique, il n'est pas possible de créer plusieurs écritures ayant la même référence.");
+                    throw new FunctionalException("La référence d'une écriture comptable doit être unique.");
                 }
             } catch (NotFoundException vEx) {
                 // Dans ce cas, c'est bon, ça veut dire qu'on n'a aucune autre écriture avec la même référence.

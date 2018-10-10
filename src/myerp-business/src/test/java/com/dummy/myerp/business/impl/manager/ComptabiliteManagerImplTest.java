@@ -1,5 +1,6 @@
 package com.dummy.myerp.business.impl.manager;
 
+import static com.dummy.myerp.business.impl.manager.ComptabiliteManagerImpl.RG6_EXCEPTION;
 import static org.junit.Assert.fail;
 
 import java.math.BigDecimal;
@@ -61,7 +62,7 @@ public class ComptabiliteManagerImplTest {
 
     @Test
     public void checkEcritureComptableContext() {
-        String exception = ComptabiliteManagerImpl.RG6_EXCEPTION;
+        String exception = manager.RG6_EXCEPTION;
 
         // id == null
         try {
