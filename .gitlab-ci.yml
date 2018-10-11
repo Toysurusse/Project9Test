@@ -1,0 +1,6 @@
+cache:
+  paths: .src/
+
+maven_build:
+  stage: test
+
