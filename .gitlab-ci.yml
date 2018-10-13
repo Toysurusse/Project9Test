@@ -2,4 +2,4 @@ image: maven:3.5.0-jdk-8
 
 buildAndTest:
   script:
-    - mvn -f src/pom.xml verify --batch-mode
+    - mvn -f src/pom.xml verify --batch-mode -P test-consumer,test-business
