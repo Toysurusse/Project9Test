@@ -25,17 +25,6 @@ public class BusinessProxyImpl implements BusinessProxy {
     /** Instance unique de la classe (design pattern Singleton) */
     private static final BusinessProxyImpl INSTANCE = new BusinessProxyImpl();
 
-    /**
-     * Renvoie l'instance unique de la classe (design pattern Singleton).
-     *
-     * @return {@link BusinessProxyImpl}
-     */
-    protected static BusinessProxyImpl getInstance() {
-        if (daoProxy == null) {
-            throw new UnsatisfiedLinkError("La classe BusinessProxyImpl n'a pas été initialisée.");
-        }
-        return BusinessProxyImpl.INSTANCE;
-    }
 
     /**
      * Renvoie l'instance unique de la classe (design pattern Singleton).

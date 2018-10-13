@@ -1,6 +1,5 @@
-cache:
-  paths: .src/
+image: maven:3.5.0-jdk-8
 
-maven_build:
-  stage: test
-
+buildAndTest:
+  script:
+    - mvn -f src/pom.xml verify --batch-mode
