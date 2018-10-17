@@ -14,7 +14,7 @@ test_docker:
         - docker-compose -f docker/dev/docker-compose.yml rm -v
         - docker-compose -f docker/dev/docker-compose.yml up -d
         - ls
-        - docker run maven:3.5-jdk-8 mvn --file -X Toysurusse/Project9Test/src/pom.xml install -P test-consumer,test-business
+        - docker run maven:3.5-jdk-8 mvn --file Toysurusse/Project9Test/src/pom.xml -X install -P test-consumer,test-business
         - docker-compose -f docker/dev/docker-compose.yml stop
         - docker-compose -f docker/dev/docker-compose.yml rm -f
         - docker-compose -f docker/dev/docker-compose.yml up -d
