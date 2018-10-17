@@ -1,7 +1,7 @@
 jobs:
-  language: java
   include:
     - stage: test maven project
+      language: java
       script: mvn --batch-mode --file ./src/pom.xml clean test -P test-consumer,test-business
     - stage: docker deploy
       script: ./deploy
