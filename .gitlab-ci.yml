@@ -14,5 +14,4 @@ build:
     - apk add --no-cache py-pip
     - pip install docker-compose
     - cd docker/dev
-    - docker-compose up --timeout 60
-    - docker-compose stop
+    - docker-compose up -d --no-recreate
