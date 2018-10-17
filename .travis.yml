@@ -6,5 +6,4 @@ before_install:
 install:
   # Start the docker stuff
   - cd docker/dev
-  - docker-compose up -d
-  - sleep 10
+  - docker-compose up
