@@ -10,8 +10,8 @@ test_docker:
     script:
         - apk add --no-cache py-pip
         - pip install docker-compose
-        - cd docker/dev
-        - docker-compose up -d
+        - docker-compose -f docker/dev/docker-compose.yml rm -v
+        - docker-compose -f docker/dev/docker-compose.yml up -d
         - mvn --file ./src/pom.xml clean package -P test-consumer,test-business
         - docker-compose -f docker/dev/docker-compose.yml stop
         - docker-compose -f docker/dev/docker-compose.yml rm -f
