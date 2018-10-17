@@ -8,6 +8,7 @@ test_docker:
     services:
         - docker:dind
     script:
+        - docker run mvn -f src/pom.xml verify --batch-mode -P test-consumer,test-business
         - apk add --no-cache py-pip
         - pip install docker-compose
         - cd docker/dev
