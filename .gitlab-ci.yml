@@ -1,15 +1,19 @@
+
+stages:
+  - build
+  - test
+
+build:
 image: maven:3.5.0-jdk-8
 
 buildAndTest:
   script:
-    - mvn -f ./src/pom.xml verify --batch-mode -P test-consumer,test-business
-    
-image: docker
+    - mvn -f src/pom.xml verify --batch-mode -P test-consumer,test-business
 
+test:
+image: docker
 services:
   - docker:dind
-
-build:
   script:
     - apk add --no-cache py-pip
     - pip install docker-compose
