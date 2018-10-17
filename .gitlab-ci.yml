@@ -6,8 +6,7 @@ stages:
 build:
 image: maven:3.5.0-jdk-8
 
-buildAndTest:
-  script:
+script:
     - mvn -f src/pom.xml verify --batch-mode -P test-consumer,test-business
 
 test:
