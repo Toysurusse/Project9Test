@@ -12,4 +12,8 @@ test_docker:
         - pip install docker-compose
         - cd docker/dev
         - docker-compose up -d
-        - mvn -f src/pom.xml verify --batch-mode -P test-consumer,test-business
+        - mvn --file ./src/pom.xml clean package -P test-consumer,test-business
+        - docker-compose -f docker/dev/docker-compose.yml stop
+        - docker-compose -f docker/dev/docker-compose.yml rm -f
+        - docker-compose -f docker/dev/docker-compose.yml up -d
+        - docker-compose -f docker/dev/docker-compose.yml ps
