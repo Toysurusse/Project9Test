@@ -15,3 +15,4 @@ build:
     - pip install docker-compose
     - cd docker/dev
     - docker-compose up
+    docker-compose stop
