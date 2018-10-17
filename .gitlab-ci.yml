@@ -4,9 +4,7 @@ build_image:
         - mvn -f src/pom.xml verify --batch-mode -P test-consumer,test-business
 
 test_docker:
-    image: 
-        - maven:3.5.0-jdk-8
-        - docker
+    image: docker
     services:
         - docker:dind
         
