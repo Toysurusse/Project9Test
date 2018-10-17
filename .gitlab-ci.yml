@@ -11,8 +11,7 @@ test_docker:
     script:
         - apk add --no-cache py-pip
         - pip install docker-compose
-        - docker volume create --name maven-repo
-        - docker run -it -v maven-repo:/root/.m2 maven mvn archetype:generate # will download artifacts
+        - docker build --tag my_local_maven:3.5.2-jdk-8 .
         - docker-compose -f docker/dev/docker-compose.yml rm -v
         - docker-compose -f docker/dev/docker-compose.yml up -d
         - mvnw install -f src/pom.xml -P test-consumer,test-business
