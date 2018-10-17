@@ -2,6 +2,8 @@
 
 Travis status : [![Build Status](https://travis-ci.org/Toysurusse/Project-9-Test.svg?branch=master)](https://travis-ci.org/Toysurusse/Project-9-Test)
 
+GitLab Status : [![pipeline status](https://gitlab.com/Toysurusse/Project9Test/badges/master/pipeline.svg)](https://gitlab.com/Toysurusse/Project9Test/commits/master)
+
 ## Organisation du répertoire
 
 *   `doc` : documentation
