@@ -4,6 +4,8 @@ Travis status : [![Build Status](https://travis-ci.org/Toysurusse/Project9Test.s
 
 GitLab Status : [![pipeline status](https://gitlab.com/Toysurusse/Project9Test/badges/master/pipeline.svg)](https://gitlab.com/Toysurusse/Project9Test/commits/master)
 
+Jenkis Statut :
+
 ## Organisation du répertoire
 
 *   `doc` : documentation
