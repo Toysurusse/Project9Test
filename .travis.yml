@@ -7,6 +7,5 @@ install:
   # Start the docker stuff
   - cd docker/dev
   - docker-compose up -d
-  - cd docker/dev
   - docker-compose stop
   
