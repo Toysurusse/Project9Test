@@ -30,7 +30,6 @@ public class EcritureComptableTest {
     public void isEquilibree() throws FunctionalException {
         EcritureComptable vEcriture;
         vEcriture = new EcritureComptable();
-
         vEcriture.setLibelle("Equilibrée");
         vEcriture.getListLigneEcriture().add(this.createLigne(1, "200.50", null));
         vEcriture.getListLigneEcriture().add(this.createLigne(1, "100.50", "33"));
@@ -56,6 +55,17 @@ public class EcritureComptableTest {
         vEcriture.getLibelle();
         vEcriture.getDate();
         vEcriture.getJournal();
+
+        LigneEcritureComptable TestLigne = new LigneEcritureComptable();
+        TestLigne.setCompteComptable(new CompteComptable());
+        TestLigne.setCredit(new BigDecimal("0.12"));
+        TestLigne.setDebit(new BigDecimal("0.12"));
+        TestLigne.setLibelle("Test");
+
+        TestLigne.getDebit();
+        TestLigne.getCredit();
+        TestLigne.getCompteComptable();
+        TestLigne.getLibelle();
 
         String exception = LigneEcritureComptable.RG7_EXCEPTION;
 

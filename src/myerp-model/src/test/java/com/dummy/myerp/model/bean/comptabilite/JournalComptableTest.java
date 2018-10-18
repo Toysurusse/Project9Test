@@ -17,11 +17,13 @@ public class JournalComptableTest {
     public void getByCode() {
         vJournal.setCode("AC");
         vJournal.setLibelle("Achat");
+        Assert.assertNull(JournalComptable.getByCode(vList, "AD"));
         vList = new ArrayList<>(0);
         vList.add(vJournal);
         vList.add(new JournalComptable("BQ", "Banque"));
         Assert.assertEquals(JournalComptable.getByCode(vList, "AC"), vJournal);
-
+        Assert.assertNull(JournalComptable.getByCode(vList, "AD"));
+        vJournal.toString();
     }
 
     @Test
