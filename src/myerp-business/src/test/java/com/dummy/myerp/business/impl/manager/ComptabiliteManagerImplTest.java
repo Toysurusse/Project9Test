@@ -1,18 +1,9 @@
 package com.dummy.myerp.business.impl.manager;
 
-import static org.junit.Assert.fail;
-
 import java.math.BigDecimal;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
-
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
 
 import com.dummy.myerp.consumer.dao.contrat.DaoProxy;
 import com.dummy.myerp.model.bean.comptabilite.CompteComptable;
@@ -20,6 +11,10 @@ import com.dummy.myerp.model.bean.comptabilite.EcritureComptable;
 import com.dummy.myerp.model.bean.comptabilite.JournalComptable;
 import com.dummy.myerp.model.bean.comptabilite.LigneEcritureComptable;
 import com.dummy.myerp.technical.exception.FunctionalException;
+import org.junit.*;
+import org.junit.rules.ExpectedException;
+
+import static org.junit.Assert.*;
 
 
 public class ComptabiliteManagerImplTest {

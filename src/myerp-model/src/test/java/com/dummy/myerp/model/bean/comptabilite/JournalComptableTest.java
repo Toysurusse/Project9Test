@@ -1,13 +1,12 @@
 package com.dummy.myerp.model.bean.comptabilite;
 
-import org.junit.jupiter.api.Test;
+
+import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.Assert.*;
 
 
 public class JournalComptableTest {

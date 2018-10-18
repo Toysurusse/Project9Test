@@ -5,9 +5,11 @@ import java.util.Date;
 
 import com.dummy.myerp.technical.exception.FunctionalException;
 import org.apache.commons.lang3.ObjectUtils;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+
+import static org.junit.Assert.*;
+
 
 
 public class EcritureComptableTest {
