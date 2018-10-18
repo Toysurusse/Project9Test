@@ -1,10 +1,13 @@
 package com.dummy.myerp.model.bean.comptabilite;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 public class JournalComptableTest {
@@ -18,21 +21,21 @@ public class JournalComptableTest {
         vJournal.setCode("AC");
         vJournal.setLibelle("Achat");
         vList = new ArrayList<>(0);
-        Assert.assertNull(JournalComptable.getByCode(vList, "AD"));
+        assertNull(JournalComptable.getByCode(vList, "AD"));
         vList.add(vJournal);
         vList.add(new JournalComptable("BQ", "Banque"));
-        Assert.assertEquals(JournalComptable.getByCode(vList, "AC"), vJournal);
-        Assert.assertNull(JournalComptable.getByCode(vList, "AD"));
+        assertEquals(JournalComptable.getByCode(vList, "AC"), vJournal);
+        assertNull(JournalComptable.getByCode(vList, "AD"));
         vJournal.toString();
     }
 
     @Test
     public void GettersTest() {
         vJournal.setCode("pCode");
-        Assert.assertTrue(vJournal.getCode().equals("pCode"));
+        assertTrue(vJournal.getCode().equals("pCode"));
 
         vJournal.setLibelle("pLibelle");
-        Assert.assertTrue(vJournal.getLibelle().equals("pLibelle"));
+        assertTrue(vJournal.getLibelle().equals("pLibelle"));
 
     }
 }

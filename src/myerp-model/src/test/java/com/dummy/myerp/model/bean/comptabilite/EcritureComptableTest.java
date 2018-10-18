@@ -5,10 +5,9 @@ import java.util.Date;
 
 import com.dummy.myerp.technical.exception.FunctionalException;
 import org.apache.commons.lang3.ObjectUtils;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 public class EcritureComptableTest {
@@ -35,7 +34,7 @@ public class EcritureComptableTest {
         vEcriture.getListLigneEcriture().add(this.createLigne(1, "100.50", "33"));
         vEcriture.getListLigneEcriture().add(this.createLigne(2, null, "301"));
         vEcriture.getListLigneEcriture().add(this.createLigne(2, "40", "7"));
-        Assert.assertTrue(vEcriture.toString(), vEcriture.isEquilibree());
+        assertTrue(vEcriture.isEquilibree());
 
         vEcriture.getListLigneEcriture().clear();
         vEcriture.setLibelle("Non équilibrée");
@@ -43,7 +42,7 @@ public class EcritureComptableTest {
         vEcriture.getListLigneEcriture().add(this.createLigne(1, "20", "-1"));
         vEcriture.getListLigneEcriture().add(this.createLigne(2, null, "30"));
         vEcriture.getListLigneEcriture().add(this.createLigne(2, "1", "2"));
-        Assert.assertFalse(vEcriture.toString(), vEcriture.isEquilibree());
+        assertFalse(vEcriture.isEquilibree());
 
         vEcriture.setId(1);
         vEcriture.setReference("BQ-2018/00001");
@@ -72,19 +71,19 @@ public class EcritureComptableTest {
         // Control number of Decimal for débit
         try {
             vEcriture.getListLigneEcriture().add(this.createLigne(1, "-10.003", null));
-            fail();
+            fail(exception);
         }
         catch (FunctionalException e) {
-            Assert.assertEquals(exception, e.getMessage());
+            assertEquals(exception, e.getMessage());
         }
 
         // Control number of Decimal for credit
         try {
             vEcriture.getListLigneEcriture().add(this.createLigne(1, null, "-10.003"));
-            fail();
+            fail(exception);
         }
         catch (FunctionalException e) {
-            Assert.assertEquals(exception, e.getMessage());
+            assertEquals(exception, e.getMessage());
         }
 
     }
