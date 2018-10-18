@@ -98,17 +98,6 @@
 			</value>
 		</property>
 
-		<property name="SQLinsertOrUpdateSequenceEcritureComptable">
-			<value>
-				INSERT INTO myerp.sequence_ecriture_comptable (journal_code, annee,
-				derniere_valeur)
-				VALUES (:journal_code, :annee, :derniere_valeur) 
-				ON CONFLICT (journal_code, annee)
-				DO UPDATE SET derniere_valeur = :derniere_valeur
-				WHERE myerp.sequence_ecriture_comptable.journal_code = :journal_code
-				AND myerp.sequence_ecriture_comptable.annee = :annee
-			</value>
-		</property>
 	</bean>
 
 </beans>
