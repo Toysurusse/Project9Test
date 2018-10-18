@@ -76,6 +76,7 @@ public class ComptabiliteDaoImplTes extends ConsumerTestCase {
     void getEcritureComptable() throws NotFoundException {
         EcritureComptable vEcritureComptable = dao.getEcritureComptable(-3);
         assertEquals("BQ-2016/00003", vEcritureComptable.getReference());
+        fail();
 
     }
 
@@ -87,6 +88,7 @@ public class ComptabiliteDaoImplTes extends ConsumerTestCase {
         assertEquals("2016", vEcritureYear);
         assertEquals(-3, vEcritureComptable.getId().intValue());
 
+        fail();
     }
 
     @Test
@@ -167,6 +169,7 @@ public class ComptabiliteDaoImplTes extends ConsumerTestCase {
             assertEquals(88, vExistingSequence.getDerniereValeur().intValue());
         } else fail("Incorrect result size: expected 1, actual 0");
 
+        fail();
     }
 
     @Test
