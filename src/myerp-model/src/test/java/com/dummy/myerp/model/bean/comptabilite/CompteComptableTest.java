@@ -16,6 +16,7 @@ public class CompteComptableTest {
 
     @Test
     public void getByNumero() {
+        Assert.assertNull(CompteComptable.getByNumero(vList, 501));
         vCompte.setNumero(401);
         vCompte.setLibelle("Fournisseurs");
         vList = new ArrayList<>(0);

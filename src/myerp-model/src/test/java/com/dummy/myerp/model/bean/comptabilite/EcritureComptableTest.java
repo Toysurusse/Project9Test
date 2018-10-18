@@ -1,6 +1,7 @@
 package com.dummy.myerp.model.bean.comptabilite;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 import com.dummy.myerp.technical.exception.FunctionalException;
 import org.apache.commons.lang3.ObjectUtils;
@@ -45,6 +46,16 @@ public class EcritureComptableTest {
         vEcriture.getListLigneEcriture().add(this.createLigne(2, "1", "2"));
         Assert.assertFalse(vEcriture.toString(), vEcriture.isEquilibree());
 
+        vEcriture.setId(1);
+        vEcriture.setReference("BQ-2018/00001");
+        vEcriture.setJournal(new JournalComptable());
+        vEcriture.setDate(new Date());
+
+        vEcriture.getId();
+        vEcriture.getReference();
+        vEcriture.getLibelle();
+        vEcriture.getDate();
+        vEcriture.getJournal();
 
         String exception = LigneEcritureComptable.RG7_EXCEPTION;
 
