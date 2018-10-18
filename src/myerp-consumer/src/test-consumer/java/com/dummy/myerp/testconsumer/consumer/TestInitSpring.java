@@ -1,7 +1,8 @@
 package com.dummy.myerp.testconsumer.consumer;
 
-import org.junit.Assert;
 import org.junit.Test;
+
+import static org.junit.Assert.assertNotNull;
 
 
 /**
@@ -12,7 +13,7 @@ public class TestInitSpring extends ConsumerTestCase {
     /**
      * Constructeur.
      */
-    TestInitSpring() {
+    public TestInitSpring() {
         super();
     }
 
@@ -21,8 +22,8 @@ public class TestInitSpring extends ConsumerTestCase {
      * Teste l'initialisation du contexte Spring
      */
     @Test
-    void testInit() {
+    public void testInit() {
         SpringRegistry.init();
-        Assert.assertNotNull(SpringRegistry.getDaoProxy());
+        assertNotNull(SpringRegistry.getDaoProxy());
     }
 }

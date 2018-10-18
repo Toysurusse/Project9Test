@@ -31,9 +31,7 @@ public class ComptabiliteManagerImplTest {
     @BeforeClass
     public static void setUpBeforeClass() throws Exception {
         DaoProxy daoProxy = new DaoProxyTest(new ComptabiliteDaoTest());
-        TestInitSpring init = new TestInitSpring();
-        init.testInit();
-        ComptabiliteManagerImpl.configure(SpringRegistry.getBusinessProxy(), daoProxy, SpringRegistry.getTransactionManager());
+        ComptabiliteManagerImpl.configure( null, daoProxy, null);
     }
 
 
