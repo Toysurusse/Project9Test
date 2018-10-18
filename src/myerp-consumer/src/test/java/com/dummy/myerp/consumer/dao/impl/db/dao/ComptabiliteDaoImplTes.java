@@ -4,10 +4,10 @@ import com.dummy.myerp.model.bean.comptabilite.*;
 import com.dummy.myerp.technical.exception.FunctionalException;
 import com.dummy.myerp.technical.exception.NotFoundException;
 import com.dummy.myerp.testconsumer.consumer.ConsumerTestCase;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 
 
 import java.math.BigDecimal;
@@ -19,29 +19,28 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 
-class ComptabiliteDaoImplTes extends ConsumerTestCase {
+public class ComptabiliteDaoImplTes extends ConsumerTestCase {
 
     private static ComptabiliteDaoImpl dao;
     private static EcritureComptable vEcritureComptable;
     private static Date vCurrentDate;
     private static Integer vCurrentYear;
 
-    @BeforeAll
+    @BeforeClass
     static void initAll() {
         dao = new ComptabiliteDaoImpl();
         vCurrentDate = new Date();
         vCurrentYear = LocalDateTime.ofInstant(vCurrentDate.toInstant(), ZoneId.systemDefault()).toLocalDate().getYear();
     }
 
-    @BeforeEach
+    @Before
     void init() {
         vEcritureComptable = new EcritureComptable();
     }
 
-    @AfterAll
+    @After
     static void tearDownAll() {
         vEcritureComptable = null;
     }
@@ -78,7 +77,6 @@ class ComptabiliteDaoImplTes extends ConsumerTestCase {
         EcritureComptable vEcritureComptable = dao.getEcritureComptable(-3);
         assertEquals("BQ-2016/00003", vEcritureComptable.getReference());
 
-        assertThrows(NotFoundException.class, () -> dao.getEcritureComptable(0));
     }
 
     @Test
@@ -89,8 +87,6 @@ class ComptabiliteDaoImplTes extends ConsumerTestCase {
         assertEquals("2016", vEcritureYear);
         assertEquals(-3, vEcritureComptable.getId().intValue());
 
-        assertThrows(NotFoundException.class, ()
-                -> dao.getEcritureComptableByRef("BQ-2016/33333"));
     }
 
     @Test
@@ -171,10 +167,6 @@ class ComptabiliteDaoImplTes extends ConsumerTestCase {
             assertEquals(88, vExistingSequence.getDerniereValeur().intValue());
         } else fail("Incorrect result size: expected 1, actual 0");
 
-        assertThrows(NotFoundException.class, () -> {
-            vExistingSequence.setAnnee(1963);
-            dao.getSequenceByCodeAndAnneeCourante(vExistingSequence);
-        });
     }
 
     @Test
