@@ -11,6 +11,8 @@ import com.dummy.myerp.model.bean.comptabilite.EcritureComptable;
 import com.dummy.myerp.model.bean.comptabilite.JournalComptable;
 import com.dummy.myerp.model.bean.comptabilite.LigneEcritureComptable;
 import com.dummy.myerp.technical.exception.FunctionalException;
+import com.dummy.myerp.testbusiness.business.SpringRegistry;
+import com.dummy.myerp.testbusiness.business.TestInitSpring;
 import org.junit.*;
 import org.junit.rules.ExpectedException;
 
@@ -29,8 +31,9 @@ public class ComptabiliteManagerImplTest {
     @BeforeClass
     public static void setUpBeforeClass() throws Exception {
         DaoProxy daoProxy = new DaoProxyTest(new ComptabiliteDaoTest());
-
-        ComptabiliteManagerImpl.configure(null, daoProxy, null);
+        TestInitSpring init = new TestInitSpring();
+        init.testInit();
+        ComptabiliteManagerImpl.configure(SpringRegistry.getBusinessProxy(), daoProxy, SpringRegistry.getTransactionManager());
     }
 
 
