@@ -23,7 +23,6 @@ public class TestInitSpring extends ConsumerTestCase {
      */
     @Test
     public void testInit() {
-        SpringRegistry.init();
         assertNotNull(SpringRegistry.getDaoProxy());
     }
 }

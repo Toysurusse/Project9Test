@@ -8,10 +8,6 @@ import com.dummy.myerp.consumer.dao.contrat.DaoProxy;
  */
 public abstract class ConsumerTestCase {
 
-    static {
-        SpringRegistry.init();
-    }
-
     /** {@link DaoProxy} */
     private static final DaoProxy DAO_PROXY = SpringRegistry.getDaoProxy();
 
@@ -21,6 +17,7 @@ public abstract class ConsumerTestCase {
      * Constructeur.
      */
     public ConsumerTestCase() {
+        SpringRegistry.init();
     }
 
 
