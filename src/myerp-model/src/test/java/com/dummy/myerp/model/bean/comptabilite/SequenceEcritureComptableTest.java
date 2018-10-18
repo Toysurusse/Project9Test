@@ -21,10 +21,10 @@ public class SequenceEcritureComptableTest {
         vSequence.setDerniereValeur(1);
         Assert.assertTrue(vSequence.getDerniereValeur().equals(1));
 
-        vSequence = new SequenceEcritureComptable("BD",2018,1);
-        Assert.assertTrue(vSequence.getJournalCode().equals("BQ"));
-        Assert.assertTrue(vSequence.getAnnee().equals(2018));
-        Assert.assertTrue(vSequence.getDerniereValeur().equals(1));
+        SequenceEcritureComptable vSequence2 = new SequenceEcritureComptable("BD",2018,1);
+        Assert.assertTrue(vSequence2.getJournalCode().equals("BD"));
+        Assert.assertTrue(vSequence2.getAnnee().equals(2018));
+        Assert.assertTrue(vSequence2.getDerniereValeur().equals(1));
 
         vSequence.toString();
     }
