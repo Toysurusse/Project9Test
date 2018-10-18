@@ -21,6 +21,7 @@ public class JournalComptableTest {
         vList.add(vJournal);
         vList.add(new JournalComptable("BQ", "Banque"));
         Assert.assertEquals(JournalComptable.getByCode(vList, "AC"), vJournal);
+
     }
 
     @Test

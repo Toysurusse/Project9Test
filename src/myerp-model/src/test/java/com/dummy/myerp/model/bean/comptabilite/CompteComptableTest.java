@@ -22,6 +22,7 @@ public class CompteComptableTest {
         vList.add(vCompte);
         vList.add(new CompteComptable(411, "Clients"));
         Assert.assertEquals(CompteComptable.getByNumero(vList, 401), vCompte);
+        Assert.assertNull(CompteComptable.getByNumero(vList, 501));
     }
 
     @Test
@@ -31,6 +32,5 @@ public class CompteComptableTest {
 
         vCompte.setNumero(12);
         Assert.assertTrue(vCompte.getNumero().equals(12));
-
     }
 }
