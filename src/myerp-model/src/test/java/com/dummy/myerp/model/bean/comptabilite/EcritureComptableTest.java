@@ -57,16 +57,19 @@ public class EcritureComptableTest {
         vEcriture.getDate();
         vEcriture.getJournal();
 
-        LigneEcritureComptable TestLigne = new LigneEcritureComptable();
-        TestLigne.setCompteComptable(new CompteComptable());
-        TestLigne.setCredit(new BigDecimal("0.12"));
-        TestLigne.setDebit(new BigDecimal("0.12"));
-        TestLigne.setLibelle("Test");
+        LigneEcritureComptable testLigne = new LigneEcritureComptable();
+        testLigne.setCompteComptable(new CompteComptable());
+        testLigne.setCredit(new BigDecimal("0.12"));
+        testLigne.setDebit(new BigDecimal("0.12"));
+        testLigne.setLibelle("Test");
 
-        TestLigne.getDebit();
-        TestLigne.getCredit();
-        TestLigne.getCompteComptable();
-        TestLigne.getLibelle();
+        testLigne.getDebit();
+        testLigne.getCredit();
+        testLigne.getCompteComptable();
+        testLigne.getLibelle();
+
+        vEcriture.toString();
+        testLigne.toString();
 
         String exception = LigneEcritureComptable.RG7_EXCEPTION;
 

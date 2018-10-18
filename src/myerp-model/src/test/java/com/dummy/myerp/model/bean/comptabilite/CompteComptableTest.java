@@ -23,6 +23,7 @@ public class CompteComptableTest {
         vList.add(new CompteComptable(411, "Clients"));
         assertEquals(CompteComptable.getByNumero(vList, 401), vCompte);
         assertNull(CompteComptable.getByNumero(vList, 501));
+        vCompte.toString();
     }
 
     @Test
