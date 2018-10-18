@@ -5,6 +5,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import com.dummy.myerp.model.validation.constraint.MontantComptable;
+import com.dummy.myerp.technical.exception.FunctionalException;
+
 
 
 /**
@@ -29,6 +31,8 @@ public class LigneEcritureComptable {
     @MontantComptable
     private BigDecimal credit;
 
+    // ==================== Exception ====================
+    public final static String RG7_EXCEPTION ="Les montants des lignes d'écritures peuvent comporter 2 chiffres maximum après la virgule.";
 
     // ==================== Constructeurs ====================
     /**
@@ -46,12 +50,26 @@ public class LigneEcritureComptable {
      * @param pCredit the credit
      */
     public LigneEcritureComptable(CompteComptable pCompteComptable, String pLibelle,
-                                  BigDecimal pDebit, BigDecimal pCredit) {
+                                  BigDecimal pDebit, BigDecimal pCredit)  throws FunctionalException {
         compteComptable = pCompteComptable;
         libelle = pLibelle;
         debit = pDebit;
         credit = pCredit;
+
+        if(debit!=null){
+            if(debit.scale()>2){
+                throw new FunctionalException(RG7_EXCEPTION);
+            }
+        }
+
+        if(credit!=null){
+            if(credit.scale()>2){
+                throw new FunctionalException(RG7_EXCEPTION);
+            }
+        }
+
     }
+
 
 
     // ==================== Getters/Setters ====================

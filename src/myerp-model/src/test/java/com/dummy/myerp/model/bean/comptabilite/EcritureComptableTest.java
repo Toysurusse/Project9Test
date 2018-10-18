@@ -2,26 +2,31 @@ package com.dummy.myerp.model.bean.comptabilite;
 
 import java.math.BigDecimal;
 
+import com.dummy.myerp.technical.exception.FunctionalException;
 import org.apache.commons.lang3.ObjectUtils;
 import org.junit.Assert;
 import org.junit.Test;
 
+import static org.junit.Assert.fail;
+
 
 public class EcritureComptableTest {
 
-    private LigneEcritureComptable createLigne(Integer pCompteComptableNumero, String pDebit, String pCredit) {
+    private LigneEcritureComptable createLigne(Integer pCompteComptableNumero, String pDebit, String pCredit) throws FunctionalException {
         BigDecimal vDebit = pDebit == null ? null : new BigDecimal(pDebit);
         BigDecimal vCredit = pCredit == null ? null : new BigDecimal(pCredit);
         String vLibelle = ObjectUtils.defaultIfNull(vDebit, BigDecimal.ZERO)
                                      .subtract(ObjectUtils.defaultIfNull(vCredit, BigDecimal.ZERO)).toPlainString();
+
         LigneEcritureComptable vRetour = new LigneEcritureComptable(new CompteComptable(pCompteComptableNumero),
                                                                     vLibelle,
                                                                     vDebit, vCredit);
+
         return vRetour;
     }
 
     @Test
-    public void isEquilibree() {
+    public void isEquilibree() throws FunctionalException {
         EcritureComptable vEcriture;
         vEcriture = new EcritureComptable();
 
@@ -34,11 +39,33 @@ public class EcritureComptableTest {
 
         vEcriture.getListLigneEcriture().clear();
         vEcriture.setLibelle("Non équilibrée");
-        vEcriture.getListLigneEcriture().add(this.createLigne(1, "10", null));
-        vEcriture.getListLigneEcriture().add(this.createLigne(1, "20", "1"));
+        vEcriture.getListLigneEcriture().add(this.createLigne(1, "-10", null));
+        vEcriture.getListLigneEcriture().add(this.createLigne(1, "20", "-1"));
         vEcriture.getListLigneEcriture().add(this.createLigne(2, null, "30"));
         vEcriture.getListLigneEcriture().add(this.createLigne(2, "1", "2"));
         Assert.assertFalse(vEcriture.toString(), vEcriture.isEquilibree());
+
+
+        String exception = LigneEcritureComptable.RG7_EXCEPTION;
+
+        // Control number of Decimal for débit
+        try {
+            vEcriture.getListLigneEcriture().add(this.createLigne(1, "-10.003", null));
+            fail();
+        }
+        catch (FunctionalException e) {
+            Assert.assertEquals(exception, e.getMessage());
+        }
+
+        // Control number of Decimal for credit
+        try {
+            vEcriture.getListLigneEcriture().add(this.createLigne(1, null, "-10.003"));
+            fail();
+        }
+        catch (FunctionalException e) {
+            Assert.assertEquals(exception, e.getMessage());
+        }
+
     }
 
 }

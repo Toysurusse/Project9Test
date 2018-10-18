@@ -40,7 +40,7 @@ public class ComptabiliteManagerImplTest {
 
 
     @Before
-    public void setUp() {
+    public void setUp() throws FunctionalException {
         // Doit être une EcritureComptable valide
         vEcritureComptable = new EcritureComptable();
         vEcritureComptable.setId(22);

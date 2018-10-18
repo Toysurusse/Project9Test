@@ -7,10 +7,8 @@ import java.util.GregorianCalendar;
 import java.util.List;
 
 import com.dummy.myerp.consumer.dao.contrat.ComptabiliteDao;
-import com.dummy.myerp.model.bean.comptabilite.CompteComptable;
-import com.dummy.myerp.model.bean.comptabilite.EcritureComptable;
-import com.dummy.myerp.model.bean.comptabilite.JournalComptable;
-import com.dummy.myerp.model.bean.comptabilite.LigneEcritureComptable;
+import com.dummy.myerp.model.bean.comptabilite.*;
+import com.dummy.myerp.technical.exception.FunctionalException;
 import com.dummy.myerp.technical.exception.NotFoundException;
 
 public class ComptabiliteDaoTest implements ComptabiliteDao {
@@ -40,7 +38,7 @@ public class ComptabiliteDaoTest implements ComptabiliteDao {
 
 
     @Override
-    public EcritureComptable getEcritureComptableByRef(String pReference) throws NotFoundException {
+    public EcritureComptable getEcritureComptableByRef(String pReference) throws NotFoundException, FunctionalException {
         EcritureComptable vEcritureComptable = new EcritureComptable();
         vEcritureComptable.setId(22);
         vEcritureComptable.setJournal(new JournalComptable("AC", "Achat"));
@@ -78,6 +76,16 @@ public class ComptabiliteDaoTest implements ComptabiliteDao {
 
     @Override
     public void deleteEcritureComptable(Integer pId) {
+
+    }
+
+    @Override
+    public SequenceEcritureComptable getSequenceByCodeAndAnneeCourante(SequenceEcritureComptable pSequence) throws NotFoundException {
+        return null;
+    }
+
+    @Override
+    public void upsertSequenceEcritureComptable(SequenceEcritureComptable pSequence) {
 
     }
 

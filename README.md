@@ -44,3 +44,57 @@ Il comporte :
     docker-compose stop
     docker-compose rm -v
     docker-compose up
+
+## Règles de gestion
+
+*   RG_Compta_1 : Le solde d'un compte comptable est égal à la somme des montants au débit des lignes d'écriture diminuées de la somme des montants au crédit. Si le résultat est positif, le solde est dit "débiteur", si le résultat est négatif le solde est dit "créditeur".
+
+
+    
+
+
+
+*   RG_Compta_2 : Pour qu'une écriture comptable soit valide, elle doit être équilibrée : la somme des montants au crédit des lignes d'écriture doit être égale à la somme des montants au débit.
+
+    
+    Les écritures comptables sont gérées par la classe Ecriture comptable. Les fonctions "BigDecimal getTotalDebit()" et "BigDecimal getTotalCrédit()" assurent le calcul de la somme des débits et de la somme des crédtis.
+    
+    La fonction IsEquilibre () permet de s'assurer que le total des crédit est égal au total des débits. 
+
+*   RG_Compta_3 : Une écriture comptable doit contenir au moins deux lignes d'écriture : une au débit et une au crédit.
+
+
+    La fonction "checkEcritureComptableUnit" contenue dans la classe ComptabiliteManagerImpl de la couche Business contrôle que l'écriture comptable contienne au moins deux lignes d'écriture.
+
+
+
+*   RG_Compta_4 :  	Les montants des lignes d'écriture sont signés et peuvent prendre des valeurs négatives (même si cela est peu fréquent).
+
+
+    Les lignes d'écritures comptables peuvent bien comprendre des lignes négatives. Le test de la couche model comprend un test unitaire l'attestant.
+
+
+
+*   RG_Compta_5 : La référence d'une écriture comptable est composée du code du journal dans lequel figure l'écriture suivi de l'année et d'un numéro de séquence (propre à chaque journal) sur 5 chiffres incrémenté automatiquement à chaque écriture. Le formatage de la référence est : XX-AAAA/#####.
+    Ex : Journal de banque (BQ), écriture au 31/12/2016
+    --> BQ-2016/00001
+
+
+    
+    
+    La couche Business contrôle via la fonction checkEcritureComptableUnit de la classe ComptabiliteManagerImpl que l'année dans la référence correspond bien à la date de l'écriture, et que le code journal correspond au journal de banque.
+    
+    
+
+
+
+*   RG_Compta_6 : La référence d'une écriture comptable doit être unique, il n'est pas possible de créer plusieurs écritures ayant la même référence.
+
+
+    La couche Business contrôle via la fonction checkEcritureComptableContext de la classe ComptabiliteManagerImpl contrôle l'unicité de l'écriture comptable.
+
+
+*   RG_Compta_7 : Les montants des lignes d'écritures peuvent comporter 2 chiffres maximum après la virgule.
+
+
+    La couche model contrôle via la classe LigneEcritureComptable que l'écriture comptable comporte moins de 3 décimales. 
