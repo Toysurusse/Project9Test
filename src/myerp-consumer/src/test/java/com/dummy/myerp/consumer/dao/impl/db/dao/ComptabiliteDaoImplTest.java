@@ -5,7 +5,7 @@ import com.dummy.myerp.technical.exception.FunctionalException;
 import com.dummy.myerp.technical.exception.NotFoundException;
 import com.dummy.myerp.testconsumer.consumer.ConsumerTestCase;
 
-import org.junit.Assert.*;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.math.BigDecimal;
@@ -15,9 +15,7 @@ import java.time.ZoneId;
 import java.util.Date;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
-
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ComptabiliteDaoImplTest  extends ConsumerTestCase{
 
@@ -47,7 +45,7 @@ public class ComptabiliteDaoImplTest  extends ConsumerTestCase{
 
     // ==================== EcritureComptable - GET ====================
 
-    @Test
+   @Test
     public void getListEcritureComptable() {
         List<EcritureComptable> vList = dao.getListEcritureComptable();
         assertEquals(4, vList.size());
@@ -137,7 +135,7 @@ public class ComptabiliteDaoImplTest  extends ConsumerTestCase{
 
     @Test
     public void getSequenceByAnneeCourante() throws NotFoundException {
-        SequenceEcritureComptable vRechercheSequence = new SequenceEcritureComptable();
+    	SequenceEcritureComptable vRechercheSequence = new SequenceEcritureComptable();
         vRechercheSequence.setJournalCode("OD");
         vRechercheSequence.setAnnee(2016);
         SequenceEcritureComptable vExistingSequence = dao.getSequenceByCodeAndAnneeCourante(vRechercheSequence);
@@ -148,7 +146,7 @@ public class ComptabiliteDaoImplTest  extends ConsumerTestCase{
             assertEquals(88, vExistingSequence.getDerniereValeur().intValue());
         } else fail("Incorrect result size: expected 1, actual 0");
 
-
+      
     }
 
     @Test

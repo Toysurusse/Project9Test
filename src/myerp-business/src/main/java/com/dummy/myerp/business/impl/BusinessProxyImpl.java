@@ -4,6 +4,7 @@ import com.dummy.myerp.business.contrat.BusinessProxy;
 import com.dummy.myerp.business.contrat.manager.ComptabiliteManager;
 import com.dummy.myerp.business.impl.manager.ComptabiliteManagerImpl;
 import com.dummy.myerp.consumer.dao.contrat.DaoProxy;
+import com.dummy.myerp.consumer.dao.impl.DaoProxyImpl;
 
 
 /**
@@ -47,6 +48,9 @@ public class BusinessProxyImpl implements BusinessProxy {
         super();
     }
 
+    public static BusinessProxyImpl getInstance(DaoProxyImpl daoProxy, TransactionManager transactionManager) {
+        return null;
+    }
 
     // ==================== Getters/Setters ====================
     @Override
