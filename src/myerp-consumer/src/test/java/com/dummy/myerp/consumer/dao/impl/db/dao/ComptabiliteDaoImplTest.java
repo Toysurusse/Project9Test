@@ -26,7 +26,7 @@ public class ComptabiliteDaoImplTest  extends ConsumerTestCase{
     // ==================== Dao Test ====================
 
     @Test
-    public void getListCompteComptable() {
+    public void getdaoTest() {
         assertNotNull(dao.getDaoProxy());
     }
 
@@ -88,7 +88,6 @@ public class ComptabiliteDaoImplTest  extends ConsumerTestCase{
         catch (FunctionalException e) {
             Assert.assertEquals(exception, e.getMessage());
             }
-
     }
 
     @Test
