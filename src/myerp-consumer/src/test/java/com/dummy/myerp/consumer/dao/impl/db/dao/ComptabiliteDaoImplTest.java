@@ -23,6 +23,13 @@ public class ComptabiliteDaoImplTest  extends ConsumerTestCase{
     private static Date vCurrentDate = new Date();
     private static Integer vCurrentYear = LocalDateTime.ofInstant(vCurrentDate.toInstant(), ZoneId.systemDefault()).toLocalDate().getYear();
 
+    // ==================== Dao Test ====================
+
+    @Test
+    public void getListCompteComptable() {
+        assertNotNull(dao.getDaoProxy());
+    }
+
 
     // ==================== CompteComptable - GET ====================
 
@@ -54,6 +61,15 @@ public class ComptabiliteDaoImplTest  extends ConsumerTestCase{
     public void getEcritureComptable() throws NotFoundException {
         EcritureComptable vEcritureComptable = dao.getEcritureComptable(-3);
         assertEquals("BQ-2016/00003", vEcritureComptable.getReference());
+
+        String exception = "EcritureComptable non trouvée : id=10";
+        try {
+            assertEquals(dao.getEcritureComptable(10));
+            fail();
+        }
+        catch (FunctionalException e) {
+            Assert.assertEquals(exception, e.getMessage());
+        }
     }
 
     @Test
@@ -63,6 +79,16 @@ public class ComptabiliteDaoImplTest  extends ConsumerTestCase{
         String vEcritureYear = new SimpleDateFormat("yyyy").format(vEcritureComptable.getDate());
         assertEquals("2016", vEcritureYear);
         assertEquals(-3, vEcritureComptable.getId().intValue());
+
+        String exception = "EcritureComptable non trouvée : reference=BQ-2020/00003";
+        try {
+            assertEquals(dao.getEcritureComptableByRef("BQ-2020/00003"));
+            fail();
+            }
+        catch (FunctionalException e) {
+            Assert.assertEquals(exception, e.getMessage());
+            }
+
     }
 
     @Test

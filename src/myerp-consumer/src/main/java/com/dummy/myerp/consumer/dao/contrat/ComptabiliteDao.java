@@ -103,12 +103,4 @@ public interface ComptabiliteDao {
      * @param pSequence -
      */
     void upsertSequenceEcritureComptable(SequenceEcritureComptable pSequence);
-
-
-    /**
-     * Insert ou Update une  séquence écriture compta.
-     *
-     * @param pSequence -
-     */
-    void insertOrUpdateSequenceEcritureComptable(SequenceEcritureComptable pSequence);
 }
