@@ -6,6 +6,7 @@ import com.dummy.myerp.technical.exception.NotFoundException;
 import com.dummy.myerp.testconsumer.consumer.ConsumerTestCase;
 
 import org.junit.Test;
+import org.junit.*;
 
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
@@ -22,14 +23,6 @@ public class ComptabiliteDaoImplTest  extends ConsumerTestCase{
     private static EcritureComptable vEcritureComptable = new EcritureComptable();
     private static Date vCurrentDate = new Date();
     private static Integer vCurrentYear = LocalDateTime.ofInstant(vCurrentDate.toInstant(), ZoneId.systemDefault()).toLocalDate().getYear();
-
-    // ==================== Dao Test ====================
-
-    @Test
-    public void getdaoTest() {
-        assertNotNull(dao.getDaoProxy());
-    }
-
 
     // ==================== CompteComptable - GET ====================
 
@@ -64,10 +57,9 @@ public class ComptabiliteDaoImplTest  extends ConsumerTestCase{
 
         String exception = "EcritureComptable non trouvée : id=10";
         try {
-            assertEquals(dao.getEcritureComptable(10));
-            fail();
+            dao.getEcritureComptable(10);
         }
-        catch (FunctionalException e) {
+        catch (NotFoundException e) {
             Assert.assertEquals(exception, e.getMessage());
         }
     }
@@ -82,11 +74,10 @@ public class ComptabiliteDaoImplTest  extends ConsumerTestCase{
 
         String exception = "EcritureComptable non trouvée : reference=BQ-2020/00003";
         try {
-            assertEquals(dao.getEcritureComptableByRef("BQ-2020/00003"));
-            fail();
+            dao.getEcritureComptableByRef("BQ-2020/00003");
             }
-        catch (FunctionalException e) {
-            Assert.assertEquals(exception, e.getMessage());
+        catch (NotFoundException e) {
+            assertEquals(exception, e.getMessage());
             }
     }
 
