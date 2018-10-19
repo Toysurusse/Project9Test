@@ -5,12 +5,14 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
+import com.dummy.myerp.business.contrat.manager.ComptabiliteManager;
 import com.dummy.myerp.consumer.dao.contrat.DaoProxy;
 import com.dummy.myerp.model.bean.comptabilite.CompteComptable;
 import com.dummy.myerp.model.bean.comptabilite.EcritureComptable;
 import com.dummy.myerp.model.bean.comptabilite.JournalComptable;
 import com.dummy.myerp.model.bean.comptabilite.LigneEcritureComptable;
 import com.dummy.myerp.technical.exception.FunctionalException;
+import com.dummy.myerp.testbusiness.business.BusinessTestCase;
 import com.dummy.myerp.testbusiness.business.SpringRegistry;
 import com.dummy.myerp.testbusiness.business.TestInitSpring;
 import org.junit.*;
@@ -19,7 +21,7 @@ import org.junit.rules.ExpectedException;
 import static org.junit.Assert.*;
 
 
-public class ComptabiliteManagerImplTest {
+public class ComptabiliteManagerImplTest extends BusinessTestCase {
 
     @Rule
     public ExpectedException thrown = ExpectedException.none();
@@ -31,7 +33,7 @@ public class ComptabiliteManagerImplTest {
     @BeforeClass
     public static void setUpBeforeClass() throws Exception {
         DaoProxy daoProxy = new DaoProxyTest(new ComptabiliteDaoTest());
-        ComptabiliteManagerImpl.configure( null, daoProxy, null);
+        ComptabiliteManagerImpl.configure( getBusinessProxy(), daoProxy, getTransactionManager());
     }
 
 
