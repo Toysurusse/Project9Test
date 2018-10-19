@@ -47,24 +47,22 @@ public class ComptabiliteDaoImplTest  extends ConsumerTestCase{
    @Test
     public void getListEcritureComptable() {
         List<EcritureComptable> vList = dao.getListEcritureComptable();
-        assertEquals(4, vList.size());
+        assertEquals(6, vList.size());
     }
 
     @Test
     public void getEcritureComptable() throws NotFoundException {
         EcritureComptable vEcritureComptable = dao.getEcritureComptable(-3);
-        assertEquals("BQ-2018/00003", vEcritureComptable.getReference());
-
+        assertEquals("BQ-2016/00003", vEcritureComptable.getReference());
     }
 
     @Test
     public void getEcritureComptableByRef() throws NotFoundException {
-        EcritureComptable vEcritureComptable = dao.getEcritureComptableByRef("BQ-2018/00003");
+        EcritureComptable vEcritureComptable = dao.getEcritureComptableByRef("BQ-2016/00003");
         assertEquals("BQ", vEcritureComptable.getJournal().getCode());
         String vEcritureYear = new SimpleDateFormat("yyyy").format(vEcritureComptable.getDate());
-        assertEquals("2018", vEcritureYear);
+        assertEquals("2016", vEcritureYear);
         assertEquals(-3, vEcritureComptable.getId().intValue());
-
     }
 
     @Test
@@ -146,15 +144,5 @@ public class ComptabiliteDaoImplTest  extends ConsumerTestCase{
         } else fail("Incorrect result size: expected 1, actual 0");
 
       
-    }
-
-    @Test
-    public void insertOrUpdateSequenceEcritureComptable() {
-        SequenceEcritureComptable vSequenceEcritureComptable = new SequenceEcritureComptable();
-        vSequenceEcritureComptable.setJournalCode("VE");
-        vSequenceEcritureComptable.setAnnee(1963);
-        vSequenceEcritureComptable.setDerniereValeur(42);
-
-        dao.insertOrUpdateSequenceEcritureComptable(vSequenceEcritureComptable);
     }
 }
