@@ -16,7 +16,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class ComptabiliteDaoImplTes  extends ConsumerTestCase{
+public class ComptabiliteDaoImplTest  extends ConsumerTestCase{
 
     private static ComptabiliteDaoImpl dao = new ComptabiliteDaoImpl();;
     private static EcritureComptable vEcritureComptable = new EcritureComptable();
