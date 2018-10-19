@@ -25,7 +25,6 @@ public class ComptabiliteManagerImplTest extends BusinessTestCase {
     public ExpectedException thrown = ExpectedException.none();
 
     private ComptabiliteManagerImpl manager = new ComptabiliteManagerImpl();
-    private ComptabiliteManager managerIntegration = getBusinessProxy().getComptabiliteManager();
     private EcritureComptable vEcritureComptable;
 
 
