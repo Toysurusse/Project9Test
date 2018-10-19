@@ -21,7 +21,7 @@ import org.junit.rules.ExpectedException;
 import static org.junit.Assert.*;
 
 
-public class ComptabiliteManagerImplTest extends BusinessTestCase {
+public class ComptabiliteManagerImplTest extends TestInitSpring {
 
     @Rule
     public ExpectedException thrown = ExpectedException.none();
