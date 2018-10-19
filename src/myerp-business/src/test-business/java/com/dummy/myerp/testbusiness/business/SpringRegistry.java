@@ -35,7 +35,7 @@ public final class SpringRegistry {
     /**
      * Constructeur.
      */
-    private SpringRegistry() {
+    public SpringRegistry() {
         super();
         SpringRegistry.LOGGER.debug("[DEBUT] SpringRegistry() - Initialisation du contexte Spring");
         this.contextAppli = new ClassPathXmlApplicationContext(SpringRegistry.CONTEXT_APPLI_LOCATION);
