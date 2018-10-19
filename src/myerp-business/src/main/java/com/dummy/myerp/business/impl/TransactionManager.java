@@ -21,14 +21,6 @@ public class TransactionManager {
     /**
      * Renvoie l'instance unique de la classe (design pattern Singleton).
      *
-     * @return {@link TransactionManager}
-     */
-    public static TransactionManager getInstance() {
-        return TransactionManager.INSTANCE;
-    }
-    /**
-     * Renvoie l'instance unique de la classe (design pattern Singleton).
-     *
      * @param pPtmMyERP -
      * @return {@link TransactionManager}
      */
