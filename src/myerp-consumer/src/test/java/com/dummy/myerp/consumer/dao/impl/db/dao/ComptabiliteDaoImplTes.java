@@ -5,7 +5,6 @@ import com.dummy.myerp.technical.exception.FunctionalException;
 import com.dummy.myerp.technical.exception.NotFoundException;
 import com.dummy.myerp.testconsumer.consumer.ConsumerTestCase;
 
-import org.junit.Assert;
 import org.junit.Test;
 
 import java.math.BigDecimal;
@@ -17,7 +16,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class ComptabiliteDaoImplTest  extends ConsumerTestCase{
+public class ComptabiliteDaoImplTes  extends ConsumerTestCase{
 
     private static ComptabiliteDaoImpl dao = new ComptabiliteDaoImpl();;
     private static EcritureComptable vEcritureComptable = new EcritureComptable();
@@ -54,16 +53,16 @@ public class ComptabiliteDaoImplTest  extends ConsumerTestCase{
     @Test
     public void getEcritureComptable() throws NotFoundException {
         EcritureComptable vEcritureComptable = dao.getEcritureComptable(-3);
-        assertEquals("BQ-2016/00003", vEcritureComptable.getReference());
+        assertEquals("BQ-2018/00003", vEcritureComptable.getReference());
 
     }
 
     @Test
     public void getEcritureComptableByRef() throws NotFoundException {
-        EcritureComptable vEcritureComptable = dao.getEcritureComptableByRef("BQ-2016/00003");
+        EcritureComptable vEcritureComptable = dao.getEcritureComptableByRef("BQ-2018/00003");
         assertEquals("BQ", vEcritureComptable.getJournal().getCode());
         String vEcritureYear = new SimpleDateFormat("yyyy").format(vEcritureComptable.getDate());
-        assertEquals("2016", vEcritureYear);
+        assertEquals("2018", vEcritureYear);
         assertEquals(-3, vEcritureComptable.getId().intValue());
 
     }
@@ -137,12 +136,12 @@ public class ComptabiliteDaoImplTest  extends ConsumerTestCase{
     public void getSequenceByAnneeCourante() throws NotFoundException {
     	SequenceEcritureComptable vRechercheSequence = new SequenceEcritureComptable();
         vRechercheSequence.setJournalCode("OD");
-        vRechercheSequence.setAnnee(2016);
+        vRechercheSequence.setAnnee(2018);
         SequenceEcritureComptable vExistingSequence = dao.getSequenceByCodeAndAnneeCourante(vRechercheSequence);
 
         if (vExistingSequence != null) {
             assertEquals("OD", vExistingSequence.getJournalCode());
-            assertEquals(2016, vExistingSequence.getAnnee().intValue());
+            assertEquals(2018, vExistingSequence.getAnnee().intValue());
             assertEquals(88, vExistingSequence.getDerniereValeur().intValue());
         } else fail("Incorrect result size: expected 1, actual 0");
 
@@ -156,6 +155,6 @@ public class ComptabiliteDaoImplTest  extends ConsumerTestCase{
         vSequenceEcritureComptable.setAnnee(1963);
         vSequenceEcritureComptable.setDerniereValeur(42);
 
-        //dao.insertOrUpdateSequenceEcritureComptable(vSequenceEcritureComptable);
+        dao.insertOrUpdateSequenceEcritureComptable(vSequenceEcritureComptable);
     }
 }
