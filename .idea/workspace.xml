@@ -2,27 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="76792436-4903-4f48-ab0e-dc0b9c5c7b8c" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_0_0.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_1_0.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_1_0.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_0_0.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/myerp-business/pom.xml" afterPath="$PROJECT_DIR$/src/myerp-business/pom.xml" />
-      <change beforePath="$PROJECT_DIR$/src/myerp-business/src/main/java/com/dummy/myerp/business/impl/BusinessProxyImpl.java" afterPath="$PROJECT_DIR$/src/myerp-business/src/main/java/com/dummy/myerp/business/impl/BusinessProxyImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/myerp-business/src/main/resources/applicationContext.xml" afterPath="$PROJECT_DIR$/src/myerp-business/src/main/resources/bootstrapContext.xml" />
-      <change beforePath="$PROJECT_DIR$/src/myerp-business/src/main/resources/com/dummy/myerp/business/applicationContext.xml" afterPath="$PROJECT_DIR$/src/myerp-business/src/main/resources/com/dummy/myerp/business/businessContext.xml" />
-      <change beforePath="$PROJECT_DIR$/src/myerp-business/src/main/resources/com/dummy/myerp/business/dataSourceContext.xml" afterPath="$PROJECT_DIR$/src/myerp-business/src/test-business/resources/com/dummy/myerp/testbusiness/business/datasourceContext.xml" />
-      <change beforePath="$PROJECT_DIR$/src/myerp-business/src/main/resources/com/dummy/myerp/business/transactionContext.xml" afterPath="$PROJECT_DIR$/src/myerp-business/src/main/resources/com/dummy/myerp/business/transactionContext.xml" />
-      <change beforePath="$PROJECT_DIR$/src/myerp-business/src/main/resources/database.properties" afterPath="$PROJECT_DIR$/src/myerp-business/src/test-business/resources/database.properties" />
-      <change beforePath="$PROJECT_DIR$/src/myerp-business/src/test-business/java/com/dummy/myerp/testbusiness/business/TestInitSpring.java" afterPath="$PROJECT_DIR$/src/myerp-business/src/test-business/java/com/dummy/myerp/testbusiness/business/TestInitSpring.java" />
-      <change beforePath="$PROJECT_DIR$/src/myerp-business/src/test-business/resources/bootstrapContext.xml" afterPath="$PROJECT_DIR$/src/myerp-business/src/test-business/resources/bootstrapContext.xml" />
-      <change beforePath="$PROJECT_DIR$/src/myerp-consumer/pom.xml" afterPath="$PROJECT_DIR$/src/myerp-consumer/pom.xml" />
-      <change beforePath="$PROJECT_DIR$/src/myerp-consumer/src/test-consumer/java/com/dummy/myerp/testconsumer/consumer/TestInitSpring.java" afterPath="$PROJECT_DIR$/src/myerp-consumer/src/test-consumer/java/com/dummy/myerp/testconsumer/consumer/TestInitSpring.java" />
       <change beforePath="$PROJECT_DIR$/src/myerp-consumer/src/test-consumer/resources/database.properties" afterPath="$PROJECT_DIR$/src/myerp-consumer/src/test-consumer/resources/database.properties" />
-      <change beforePath="$PROJECT_DIR$/src/myerp-consumer/src/test/java/com/dummy/myerp/consumer/dao/impl/db/dao/ComptabiliteDaoImplTest.java" afterPath="$PROJECT_DIR$/src/myerp-consumer/src/test/java/com/dummy/myerp/consumer/dao/impl/db/dao/ComptabiliteDaoImplTest.java" />
-      <change beforePath="$PROJECT_DIR$/src/myerp-model/pom.xml" afterPath="$PROJECT_DIR$/src/myerp-model/pom.xml" />
-      <change beforePath="$PROJECT_DIR$/src/myerp-technical/pom.xml" afterPath="$PROJECT_DIR$/src/myerp-technical/pom.xml" />
-      <change beforePath="$PROJECT_DIR$/src/pom.xml" afterPath="$PROJECT_DIR$/src/pom.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/src/myerp-model/target/" />
     <ignored path="$PROJECT_DIR$/src/myerp-business/target/" />
@@ -52,16 +32,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="businessContext.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/myerp-business/src/main/resources/com/dummy/myerp/business/businessContext.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="41" lean-forward="false" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="TestInitSpring.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/myerp-business/src/test-business/java/com/dummy/myerp/testbusiness/business/TestInitSpring.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -70,26 +40,6 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SpringRegistry.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/myerp-business/src/test-business/java/com/dummy/myerp/testbusiness/business/SpringRegistry.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-49">
-              <caret line="36" column="7" lean-forward="false" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="transactionContext.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/myerp-business/src/main/resources/com/dummy/myerp/business/transactionContext.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -104,12 +54,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="datasourceContext.xml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="datasourceContext.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/myerp-consumer/src/test-consumer/resources/com/dummy/myerp/testconsumer/consumer/datasourceContext.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="272">
+              <caret line="16" column="72" lean-forward="false" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="72" />
+              <folding>
+                <element signature="e#1008#1033#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -144,11 +96,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ComptabiliteDaoImplTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ComptabiliteDaoImplTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/myerp-consumer/src/test/java/com/dummy/myerp/consumer/dao/impl/db/dao/ComptabiliteDaoImplTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="323">
               <caret line="19" column="35" lean-forward="false" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sqlContext.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/myerp-consumer/src/main/resources/com/dummy/myerp/consumer/sqlContext.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1445">
+              <caret line="85" column="19" lean-forward="false" selection-start-line="85" selection-start-column="19" selection-end-line="85" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="docker-compose.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/docker/dev/docker-compose.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="28" lean-forward="true" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="database.properties" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/myerp-consumer/src/test-consumer/resources/database.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="58" lean-forward="false" selection-start-line="2" selection-start-column="58" selection-end-line="2" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -234,6 +216,7 @@
         <option value="$PROJECT_DIR$/src/myerp-business/src/test-business/java/com/dummy/myerp/testbusiness/business/TestInitSpring.java" />
         <option value="$PROJECT_DIR$/src/myerp-consumer/src/test/java/com/dummy/myerp/consumer/dao/impl/db/dao/ComptabiliteDaoImplTes.java" />
         <option value="$PROJECT_DIR$/src/myerp-consumer/src/test/java/com/dummy/myerp/consumer/dao/impl/db/dao/ComptabiliteDaoImplTest.java" />
+        <option value="$PROJECT_DIR$/src/myerp-consumer/src/test-consumer/resources/database.properties" />
       </list>
     </option>
   </component>
@@ -717,15 +700,16 @@
       <workItem from="1539249774620" duration="6183000" />
       <workItem from="1539410528231" duration="3960000" />
       <workItem from="1539875344587" duration="13957000" />
-      <workItem from="1539933674122" duration="3738000" />
+      <workItem from="1539933674122" duration="4220000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51218000" />
+    <option name="totallyTimeSpent" value="51700000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -735,7 +719,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40978262" sideWeight="0.07782516" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.122068234" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40978262" sideWeight="0.9221748" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40978262" sideWeight="0.9221748" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.4978678" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -891,14 +875,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docker/dev/docker-compose.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/myerp-consumer/src/test-consumer/resources/database.properties" />
     <entry file="file://$PROJECT_DIR$/src/myerp-consumer/src/test/java/com/dummy/myerp/consumer/dao/impl/db/dao/ComptabiliteDaoImplTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -963,14 +939,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="380" column="29" lean-forward="false" selection-start-line="380" selection-start-column="29" selection-end-line="380" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/myerp-consumer/src/main/resources/com/dummy/myerp/consumer/sqlContext.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1315">
-          <caret line="85" column="19" lean-forward="false" selection-start-line="85" selection-start-column="19" selection-end-line="85" selection-end-column="19" />
           <folding />
         </state>
       </provider>
@@ -1097,14 +1065,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/myerp-consumer/src/test-consumer/resources/com/dummy/myerp/testconsumer/consumer/datasourceContext.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/myerp-consumer/src/test-consumer/resources/bootstrapContext.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1134,6 +1094,40 @@
         <state relative-caret-position="323">
           <caret line="19" column="35" lean-forward="false" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/myerp-consumer/src/main/resources/com/dummy/myerp/consumer/sqlContext.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1445">
+          <caret line="85" column="19" lean-forward="false" selection-start-line="85" selection-start-column="19" selection-end-line="85" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docker/dev/docker-compose.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="28" lean-forward="true" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/myerp-consumer/src/test-consumer/resources/database.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="58" lean-forward="false" selection-start-line="2" selection-start-column="58" selection-end-line="2" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/myerp-consumer/src/test-consumer/resources/com/dummy/myerp/testconsumer/consumer/datasourceContext.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="72" lean-forward="false" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="72" />
+          <folding>
+            <element signature="e#1008#1033#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
