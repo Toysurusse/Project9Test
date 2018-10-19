@@ -15,9 +15,9 @@ public abstract class BusinessTestCase {
     }
 
     /** {@link BusinessProxy} */
-    private static final BusinessProxy BUSINESS_PROXY = SpringRegistry.getBusinessProxy();
+    protected static final BusinessProxy BUSINESS_PROXY = SpringRegistry.getBusinessProxy();
     /** {@link TransactionManager} */
-    private static final TransactionManager TRANSACTION_MANAGER = SpringRegistry.getTransactionManager();
+    protected static final TransactionManager TRANSACTION_MANAGER = SpringRegistry.getTransactionManager();
 
 
     // ==================== Constructeurs ====================

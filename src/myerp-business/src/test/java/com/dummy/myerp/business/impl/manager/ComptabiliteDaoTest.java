@@ -89,4 +89,9 @@ public class ComptabiliteDaoTest implements ComptabiliteDao {
 
     }
 
+    @Override
+    public void insertOrUpdateSequenceEcritureComptable(SequenceEcritureComptable pSequence) {
+
+    }
+
 }

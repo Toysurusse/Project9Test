@@ -13,27 +13,26 @@ import com.dummy.myerp.model.bean.comptabilite.JournalComptable;
 import com.dummy.myerp.model.bean.comptabilite.LigneEcritureComptable;
 import com.dummy.myerp.technical.exception.FunctionalException;
 import com.dummy.myerp.testbusiness.business.BusinessTestCase;
-import com.dummy.myerp.testbusiness.business.SpringRegistry;
-import com.dummy.myerp.testbusiness.business.TestInitSpring;
 import org.junit.*;
 import org.junit.rules.ExpectedException;
 
 import static org.junit.Assert.*;
 
 
-public class ComptabiliteManagerImplTest extends TestInitSpring {
+public class ComptabiliteManagerImplTest extends BusinessTestCase {
 
     @Rule
     public ExpectedException thrown = ExpectedException.none();
 
     private ComptabiliteManagerImpl manager = new ComptabiliteManagerImpl();
+    private ComptabiliteManager managerIntegration = getBusinessProxy().getComptabiliteManager();
     private EcritureComptable vEcritureComptable;
 
 
     @BeforeClass
     public static void setUpBeforeClass() throws Exception {
         DaoProxy daoProxy = new DaoProxyTest(new ComptabiliteDaoTest());
-        ComptabiliteManagerImpl.configure( getBusinessProxy(), daoProxy, getTransactionManager());
+        ComptabiliteManagerImpl.configure( null, daoProxy, null);
     }
 
 
