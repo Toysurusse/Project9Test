@@ -139,7 +139,7 @@ public class ComptabiliteDaoImplTest  extends ConsumerTestCase{
 
         if (vExistingSequence != null) {
             assertEquals("OD", vExistingSequence.getJournalCode());
-            assertEquals(2018, vExistingSequence.getAnnee().intValue());
+            assertEquals(2016, vExistingSequence.getAnnee().intValue());
             assertEquals(88, vExistingSequence.getDerniereValeur().intValue());
         } else fail("Incorrect result size: expected 1, actual 0");
 
