@@ -47,7 +47,7 @@ public class ComptabiliteDaoImplTest  extends ConsumerTestCase{
    @Test
     public void getListEcritureComptable() {
         List<EcritureComptable> vList = dao.getListEcritureComptable();
-        assertEquals(6, vList.size());
+        assertEquals(4, vList.size());
     }
 
     @Test
@@ -134,7 +134,7 @@ public class ComptabiliteDaoImplTest  extends ConsumerTestCase{
     public void getSequenceByAnneeCourante() throws NotFoundException {
     	SequenceEcritureComptable vRechercheSequence = new SequenceEcritureComptable();
         vRechercheSequence.setJournalCode("OD");
-        vRechercheSequence.setAnnee(2018);
+        vRechercheSequence.setAnnee(2016);
         SequenceEcritureComptable vExistingSequence = dao.getSequenceByCodeAndAnneeCourante(vRechercheSequence);
 
         if (vExistingSequence != null) {
