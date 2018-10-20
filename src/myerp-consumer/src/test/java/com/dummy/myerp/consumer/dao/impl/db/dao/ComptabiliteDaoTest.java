@@ -32,8 +32,10 @@ public class ComptabiliteDaoTest extends ConsumerTestCase{
     public void getTestResultTest() {
         RS.IntegerTest("numero");
         RS.LongTest("numero");
+        RS.DateTest("numero");
         assertNull(RS.IntegerTest("test"));
         assertNull(RS.LongTest("test"));
+        assertNull(RS.DateTest("test"));
     }
 
 

@@ -45,7 +45,7 @@ public class ResultSethelperImp extends ResultSetHelper {
 
     private Connection connect() {
         // SQLite connection string
-        String url = "jdbc:postgresql://localhost:9032/db_myerp";
+        String url = "jdbc:postgresql://127.0.0.1:9032/db_myerp";
         Connection conn = null;
         try {
             conn = DriverManager.getConnection(url, "usr_myerp","myerp");
@@ -65,7 +65,7 @@ public class ResultSethelperImp extends ResultSetHelper {
         try (Connection conn = this.connect();
              Statement stmt  = conn.createStatement();
              ResultSet rs = stmt.executeQuery(sql)){
-            if(rs !=null) {
+            if(!rs.wasNull()) {
                 RSLongTest = getLong(rs, "numero");
             }
         } catch (SQLException e) {
@@ -83,12 +83,30 @@ public class ResultSethelperImp extends ResultSetHelper {
         try (Connection conn = this.connect();
              Statement stmt  = conn.createStatement();
              ResultSet rs = stmt.executeQuery(sql)){
-            if(rs !=null) {
+            if(!rs.wasNull()) {
                 RSIntegerTest = getInteger(rs, "numero");
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
         return RSIntegerTest;
+    }
+
+    /**
+     * Contrôle Date
+     */
+    public java.util.Date DateTest(String column){
+        String sql = "SELECT * FROM myerp.compte_comptable";
+        java.util.Date RSDateTest = null;
+        try (Connection conn = this.connect();
+             Statement stmt  = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)){
+            if(!rs.wasNull()) {
+                RSDateTest = getDate(rs, "numero");
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return RSDateTest;
     }
 }
