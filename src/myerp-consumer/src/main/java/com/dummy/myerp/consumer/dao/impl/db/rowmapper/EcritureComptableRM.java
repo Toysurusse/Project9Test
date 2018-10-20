@@ -1,4 +1,4 @@
-package com.dummy.myerp.consumer.dao.impl.db.rowmapper.comptabilite;
+package com.dummy.myerp.consumer.dao.impl.db.rowmapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

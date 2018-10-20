@@ -8,7 +8,7 @@
       <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
       <secret-storage>master_key</secret-storage>
       <user-name>usr_myerp</user-name>
-      <introspection-schemas>my_erp:pg_catalog</introspection-schemas>
+      <introspection-schemas>my_erp:myerp</introspection-schemas>
     </data-source>
   </component>
 </project>
