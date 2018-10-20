@@ -41,11 +41,11 @@ public class ResultSethelperImp extends ResultSetHelper {
 
 
 
-    //myerp.datasource.url=jdbc:postgresql://localhost:9032/db_myerp
+    //myerp.datasource.url=jdbc:postgresql://127.0.0.1:5432/my_erp
 
     private Connection connect() {
         // SQLite connection string
-        String url = "jdbc:postgresql://127.0.0.1:5432/my_erp";
+        String url = "jdbc:postgresql://localhost:9032/db_myerp";
         Connection conn = null;
         try {
             conn = DriverManager.getConnection(url, "usr_myerp","myerp");
