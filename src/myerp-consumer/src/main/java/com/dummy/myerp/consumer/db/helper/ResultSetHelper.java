@@ -5,13 +5,14 @@ import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.Date;
 
+import com.dummy.myerp.consumer.db.AbstractDbConsumer;
 import org.apache.commons.lang3.time.DateUtils;
 
 
 /**
  * Classe utilitaire travaillant sur les ResultSet
  */
-public abstract class ResultSetHelper {
+public abstract class ResultSetHelper extends AbstractDbConsumer {
 
     // ==================== Constructeurs ====================
     /**

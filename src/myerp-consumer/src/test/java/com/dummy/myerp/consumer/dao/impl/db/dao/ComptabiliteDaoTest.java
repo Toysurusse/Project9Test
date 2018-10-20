@@ -17,12 +17,22 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class ComptabiliteDaoImplTes extends ConsumerTestCase{
+public class ComptabiliteDaoTest extends ConsumerTestCase{
 
-    private static ComptabiliteDaoImpl dao = new ComptabiliteDaoImpl();;
+
+    private static ResultSethelperImp RS = new ResultSethelperImp();
+    private static ComptabiliteDaoImpl dao = new ComptabiliteDaoImpl();
     private static EcritureComptable vEcritureComptable = new EcritureComptable();
     private static Date vCurrentDate = new Date();
     private static Integer vCurrentYear = LocalDateTime.ofInstant(vCurrentDate.toInstant(), ZoneId.systemDefault()).toLocalDate().getYear();
+
+    // ==================== Test Resultset Helper ====================
+
+    @Test
+    public void getTestResultTest() {
+        RS.Selectcolumn();
+    }
+
 
     // ==================== CompteComptable - GET ====================
 

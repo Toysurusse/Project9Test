@@ -27,7 +27,7 @@ public class ComptabiliteDaoImpl extends AbstractDbConsumer implements Comptabil
     /**
      * Renvoie l'instance unique de la classe (design pattern Singleton).
      *
-     * @return {@link com.dummy.myerp.consumer.dao.impl.db.rowmapper.ComptabiliteDaoImpl}
+     * @return {@link ComptabiliteDaoImpl}
      */
     public static ComptabiliteDaoImpl getInstance() {
         return ComptabiliteDaoImpl.INSTANCE;
@@ -51,6 +51,9 @@ public class ComptabiliteDaoImpl extends AbstractDbConsumer implements Comptabil
     public List<CompteComptable> getListCompteComptable() {
         JdbcTemplate vJdbcTemplate = new JdbcTemplate(this.getDataSource(DataSourcesEnum.MYERP));
         CompteComptableRM vRM = new CompteComptableRM();
+
+
+
         List<CompteComptable> vList = vJdbcTemplate.query(SQLgetListCompteComptable, vRM);
         return vList;
     }
@@ -295,5 +298,4 @@ public class ComptabiliteDaoImpl extends AbstractDbConsumer implements Comptabil
     public void setSQLinsertOrUpdateSequenceEcritureComptable(String pSQLinsertOrUpdateSequenceEcritureComptable) {
         SQLinsertOrUpdateSequenceEcritureComptable = pSQLinsertOrUpdateSequenceEcritureComptable;
     }
-    
 }
