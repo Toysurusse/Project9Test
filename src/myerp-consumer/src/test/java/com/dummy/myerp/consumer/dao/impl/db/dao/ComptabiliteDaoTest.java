@@ -30,7 +30,10 @@ public class ComptabiliteDaoTest extends ConsumerTestCase{
 
     @Test
     public void getTestResultTest() {
-        RS.Selectcolumn();
+        RS.IntegerTest("numero");
+        RS.LongTest("numero");
+        assertNull(RS.IntegerTest("test"));
+        assertNull(RS.LongTest("test"));
     }
 
 

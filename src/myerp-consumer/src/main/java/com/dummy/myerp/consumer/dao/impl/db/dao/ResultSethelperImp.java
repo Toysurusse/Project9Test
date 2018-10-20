@@ -57,18 +57,38 @@ public class ResultSethelperImp extends ResultSetHelper {
 
 
     /**
-     * select all rows in the warehouses table
+     * Contrôle Long
      */
-    public void Selectcolumn(){
+    public Long LongTest(String column){
         String sql = "SELECT * FROM myerp.compte_comptable";
-
+        Long RSLongTest = null;
         try (Connection conn = this.connect();
              Statement stmt  = conn.createStatement();
-             ResultSet rs    = stmt.executeQuery(sql)){
-             getLong(rs,"numero");
-             getInteger(rs,"numero");
+             ResultSet rs = stmt.executeQuery(sql)){
+            if(rs !=null) {
+                RSLongTest = getLong(rs, "numero");
+            }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+        return RSLongTest;
+    }
+
+    /**
+     * Contrôle Integer
+     */
+    public Integer IntegerTest(String column){
+        String sql = "SELECT * FROM myerp.compte_comptable";
+        Integer RSIntegerTest = null;
+        try (Connection conn = this.connect();
+             Statement stmt  = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)){
+            if(rs !=null) {
+                RSIntegerTest = getInteger(rs, "numero");
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return RSIntegerTest;
     }
 }
