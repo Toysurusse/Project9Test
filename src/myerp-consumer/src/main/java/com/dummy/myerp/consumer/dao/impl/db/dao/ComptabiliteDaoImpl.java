@@ -156,9 +156,6 @@ public class ComptabiliteDaoImpl extends AbstractDbConsumer implements Comptabil
     }
     @Override
     public void insertEcritureComptable(EcritureComptable pEcritureComptable) {
-        // ===== Liste des lignes d'écriture
-        this.insertListLigneEcritureComptable(pEcritureComptable);
-        
         // ===== Ecriture Comptable
         NamedParameterJdbcTemplate vJdbcTemplate = new NamedParameterJdbcTemplate(getDataSource(DataSourcesEnum.MYERP));
         MapSqlParameterSource vSqlParams = new MapSqlParameterSource();
@@ -174,6 +171,8 @@ public class ComptabiliteDaoImpl extends AbstractDbConsumer implements Comptabil
                                                            Integer.class);
         pEcritureComptable.setId(vId);
 
+        // ===== Liste des lignes d'écriture
+        this.insertListLigneEcritureComptable(pEcritureComptable);
     }
 
     /** SQLinsertListLigneEcritureComptable */
