@@ -1,5 +1,6 @@
 package com.dummy.myerp.testbusiness.business;
 
+import com.dummy.myerp.business.impl.BusinessProxyImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.context.ApplicationContext;

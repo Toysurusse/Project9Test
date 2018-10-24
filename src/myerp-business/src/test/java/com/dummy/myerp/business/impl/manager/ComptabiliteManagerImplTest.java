@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 import com.dummy.myerp.business.contrat.BusinessProxy;
+import com.dummy.myerp.business.contrat.manager.ComptabiliteManager;
 import com.dummy.myerp.business.impl.BusinessProxyImpl;
 import com.dummy.myerp.business.impl.TransactionManager;
 import com.dummy.myerp.consumer.dao.contrat.ComptabiliteDao;
@@ -22,6 +23,8 @@ import com.dummy.myerp.testbusiness.business.SpringRegistry;
 import org.junit.*;
 import org.junit.rules.ExpectedException;
 
+import javax.swing.*;
+
 import static org.junit.Assert.*;
 
 
@@ -29,7 +32,6 @@ public class ComptabiliteManagerImplTest extends BusinessTestCase {
 
     @Rule
     public ExpectedException thrown = ExpectedException.none();
-
     private ComptabiliteManagerImpl manager = new ComptabiliteManagerImpl();
     private EcritureComptable vEcritureComptable;
 
@@ -37,10 +39,13 @@ public class ComptabiliteManagerImplTest extends BusinessTestCase {
     @BeforeClass
     public static void setUpBeforeClass() throws Exception {
         DaoProxyTest daoProxy= new DaoProxyTest(new ComptabiliteDaoTest());
+
         SpringRegistry.getTransactionManager().beginTransactionMyERP();
         SpringRegistry.getTransactionManager().commitMyERP(SpringRegistry.getTransactionManager().beginTransactionMyERP());
         SpringRegistry.getTransactionManager().rollbackMyERP(SpringRegistry.getTransactionManager().beginTransactionMyERP());
         SpringRegistry.getTransactionManager().beginTransactionMyERP();
+        SpringRegistry.getBusinessProxy().getComptabiliteManager();
+
         BusinessProxy business = BusinessProxyImpl.getInstance(daoProxy,SpringRegistry.getTransactionManager());
         ComptabiliteManagerImpl.configure( SpringRegistry.getBusinessProxy(), daoProxy, SpringRegistry.getTransactionManager());
     }
@@ -61,6 +66,18 @@ public class ComptabiliteManagerImplTest extends BusinessTestCase {
                 .add(new LigneEcritureComptable(new CompteComptable(1), null, new BigDecimal(123), null));
         vEcritureComptable.getListLigneEcriture()
                 .add(new LigneEcritureComptable(new CompteComptable(2), null, null, new BigDecimal(123)));
+    }
+
+    @Test
+    public void checkCCJCandEC() throws Exception {
+        manager.getListCompteComptable();
+        manager.getListEcritureComptable();
+        manager.getListJournalComptable();
+    }
+
+    @Test
+    public void checkAddReference() throws Exception {
+        manager.addReference(vEcritureComptable);
     }
 
 
