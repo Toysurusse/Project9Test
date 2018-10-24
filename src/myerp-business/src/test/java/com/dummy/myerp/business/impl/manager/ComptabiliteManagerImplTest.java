@@ -7,13 +7,7 @@ import java.util.GregorianCalendar;
 import java.util.List;
 
 import com.dummy.myerp.business.contrat.BusinessProxy;
-import com.dummy.myerp.business.contrat.manager.ComptabiliteManager;
 import com.dummy.myerp.business.impl.BusinessProxyImpl;
-import com.dummy.myerp.business.impl.TransactionManager;
-import com.dummy.myerp.consumer.dao.contrat.ComptabiliteDao;
-import com.dummy.myerp.consumer.dao.contrat.DaoProxy;
-import com.dummy.myerp.consumer.dao.impl.DaoProxyImpl;
-import com.dummy.myerp.consumer.dao.impl.db.dao.ComptabiliteDaoImpl;
 import com.dummy.myerp.model.bean.comptabilite.CompteComptable;
 import com.dummy.myerp.model.bean.comptabilite.EcritureComptable;
 import com.dummy.myerp.model.bean.comptabilite.JournalComptable;
@@ -23,8 +17,6 @@ import com.dummy.myerp.testbusiness.business.BusinessTestCase;
 import com.dummy.myerp.testbusiness.business.SpringRegistry;
 import org.junit.*;
 import org.junit.rules.ExpectedException;
-
-import javax.swing.*;
 
 import static org.junit.Assert.*;
 
@@ -38,7 +30,7 @@ public class ComptabiliteManagerImplTest extends BusinessTestCase {
 
 
     @BeforeClass
-    public static void setUpBeforeClass() throws Exception {
+    public static void setUpBeforeClass() {
         DaoProxyTest daoProxy= new DaoProxyTest(new ComptabiliteDaoTest());
 
         SpringRegistry.getTransactionManager().beginTransactionMyERP();
@@ -68,15 +60,17 @@ public class ComptabiliteManagerImplTest extends BusinessTestCase {
                 .add(new LigneEcritureComptable(new CompteComptable(2), null, null, new BigDecimal(123)));
     }
 
+
     @Test
     public void checkCCJCandEC() throws Exception {
         manager.getListCompteComptable();
         List<EcritureComptable> lcomptecomptable = manager.getListEcritureComptable();
         manager.getListJournalComptable();
 
-        manager.deleteEcritureComptable(lcomptecomptable.get(0).getId());
-        manager.insertEcritureComptable(lcomptecomptable.get(0));
+        manager.insertEcritureComptable(vEcritureComptable);
+        manager.deleteEcritureComptable(vEcritureComptable.getId());
     }
+
 
     @Test
     public void checkAddReference() throws Exception {
