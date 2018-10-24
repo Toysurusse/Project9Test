@@ -46,7 +46,7 @@ public class ComptabiliteManagerImplTest extends AbstractBusinessManager {
 
     @Before
     public void setUp() throws FunctionalException {
-        Assert.assertNotNull(getBusinessProxy());
+        getBusinessProxy();
         Assert.assertNotNull(getBusinessProxy().getComptabiliteManager());
         // Doit être une EcritureComptable valide
         vEcritureComptable = new EcritureComptable();
