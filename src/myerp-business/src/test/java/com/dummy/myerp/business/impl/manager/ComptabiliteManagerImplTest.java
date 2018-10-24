@@ -1,10 +1,9 @@
 package com.dummy.myerp.business.impl.manager;
 
 import java.math.BigDecimal;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.List;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 import com.dummy.myerp.business.contrat.BusinessProxy;
 import com.dummy.myerp.business.impl.BusinessProxyImpl;
@@ -46,8 +45,15 @@ public class ComptabiliteManagerImplTest extends BusinessTestCase {
         vEcritureComptable = new EcritureComptable();
         vEcritureComptable.setId(22);
         vEcritureComptable.setJournal(new JournalComptable("AC", "Achat"));
-        Date date = new Date();
-        date.setTime(1477314007);
+        SimpleDateFormat isoFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+        isoFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
+        Date date = null;
+        try {
+            date = isoFormat.parse("2016-05-23T09:01:02");
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        System.out.println(date);
         vEcritureComptable.setDate(date);
         Calendar calendar = new GregorianCalendar();
         calendar.setTime(vEcritureComptable.getDate());
