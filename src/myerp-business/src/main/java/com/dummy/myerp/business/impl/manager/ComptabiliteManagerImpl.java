@@ -110,8 +110,8 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
     // TODO à tester
     @Override
     public void checkEcritureComptable(EcritureComptable pEcritureComptable) throws FunctionalException {
-        this.checkEcritureComptableUnit(pEcritureComptable);
         this.checkEcritureComptableContext(pEcritureComptable);
+        this.checkEcritureComptableUnit(pEcritureComptable);
     }
 
 
@@ -182,20 +182,19 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
         // ===== RG_Compta_6 : La référence d'une écriture comptable doit être unique
 
         if (StringUtils.isNoneEmpty(pEcritureComptable.getReference())) {
-            try {
-                // Recherche d'une écriture ayant la même référence
-
-                EcritureComptable vECRef = getDaoProxy().getComptabiliteDao().getEcritureComptableByRef(
-                        pEcritureComptable.getReference());
-                // Si l'écriture à vérifier est une nouvelle écriture (id == null),
-                // ou si elle ne correspond pas à l'écriture trouvée (id != idECRef),
-                // c'est qu'il y a déjà une autre écriture avec la même référence
-                if (pEcritureComptable.getId() == null
-                        || !pEcritureComptable.getId().equals(vECRef.getId())) {
+            // Recherche d'une écriture ayant la même référence
+            List<EcritureComptable> vECRef = getDaoProxy().getComptabiliteDao().getListEcritureComptable();
+            // Si l'écriture à vérifier est une nouvelle écriture (id == null),
+            // ou si elle ne correspond pas à l'écriture trouvée (id != idECRef),
+            // c'est qu'il y a déjà une autre écriture avec la même référence
+            if (pEcritureComptable.getId() == null) {
+                throw new FunctionalException("La référence d'une écriture comptable doit être unique.");
+            }
+            for (EcritureComptable ec:vECRef
+                 ) {
+                if (ec.getId()==pEcritureComptable.getId()){
                     throw new FunctionalException("La référence d'une écriture comptable doit être unique.");
                 }
-            } catch (NotFoundException vEx) {
-                // Dans ce cas, c'est bon, ça veut dire qu'on n'a aucune autre écriture avec la même référence.
             }
         }
     }

@@ -72,6 +72,8 @@ public class ComptabiliteManagerImplTest extends BusinessTestCase {
         manager.getListJournalComptable();
 
         manager.insertEcritureComptable(vEcritureComptable);
+        vEcritureComptable.setLibelle("Test Libellé");
+        manager.updateEcritureComptable(vEcritureComptable);
         manager.deleteEcritureComptable(vEcritureComptable.getId());
     }
 
@@ -95,19 +97,22 @@ public class ComptabiliteManagerImplTest extends BusinessTestCase {
         // id == null
         try {
             vEcritureComptable.setId(null);
+            vEcritureComptable.setReference("AA-2018/00001");
             manager.checkEcritureComptableContext(vEcritureComptable);
+            fail();
         }
         catch (FunctionalException e) {
-            Assert.assertEquals(exception, e.getMessage());
+            Assert.assertEquals("La référence d'une écriture comptable doit être unique.", e.getMessage());
         }
 
         // id != expected
         try {
-            vEcritureComptable.setId(33);
+            vEcritureComptable.setId(-5);
             manager.checkEcritureComptableContext(vEcritureComptable);
+            fail();
         }
         catch (FunctionalException e) {
-            Assert.assertEquals(exception, e.getMessage());
+            Assert.assertEquals("La référence d'une écriture comptable doit être unique.", e.getMessage());
         }
     }
 
