@@ -216,6 +216,7 @@ public class ComptabiliteDaoImpl extends AbstractDbConsumer implements Comptabil
         // ===== Ecriture Comptable
         NamedParameterJdbcTemplate vJdbcTemplate = new NamedParameterJdbcTemplate(getDataSource(DataSourcesEnum.MYERP));
         MapSqlParameterSource vSqlParams = new MapSqlParameterSource();
+        System.out.println(pEcritureComptable.getId());
         vSqlParams.addValue("id", pEcritureComptable.getId());
         vSqlParams.addValue("journal_code", pEcritureComptable.getJournal().getCode());
         vSqlParams.addValue("reference", pEcritureComptable.getReference());
