@@ -7,18 +7,23 @@ import com.dummy.myerp.testconsumer.consumer.ConsumerTestCase;
 
 import org.junit.Test;
 import org.junit.*;
+import org.junit.rules.ExpectedException;
 
 import java.math.BigDecimal;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Date;
 import java.util.List;
 
+import static org.junit.Assert.fail;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ComptabiliteDaoTest extends ConsumerTestCase{
 
+    @Rule
+    public ExpectedException thrown = ExpectedException.none();
 
     private static ResultSethelperImp RS = new ResultSethelperImp();
     private static ComptabiliteDaoImpl dao = new ComptabiliteDaoImpl();
@@ -29,15 +34,26 @@ public class ComptabiliteDaoTest extends ConsumerTestCase{
     // ==================== Test Resultset Helper ====================
 
     @Test
-    public void getTestResultTest() {
+    public void getTestResultTest() throws SQLException {
         RS.IntegerTest("numero");
         RS.LongTest("numero");
-        RS.DateTest("numero");
-        assertNull(RS.IntegerTest("test"));
-        assertNull(RS.LongTest("test"));
-        assertNull(RS.DateTest("test"));
-    }
+        String exception ="Le nom de colonne test n'a pas été trouvé dans ce ResultSet.";
+        try {
+            assertNull(RS.IntegerTest("test"));
+            fail();
+        }
+        catch (SQLException e) {
+            Assert.assertEquals(exception, e.getMessage());
+        }
 
+        try {
+            assertNull(RS.LongTest("test"));
+            fail();
+        }
+        catch (SQLException e) {
+            Assert.assertEquals(exception, e.getMessage());
+        }
+    }
 
     // ==================== CompteComptable - GET ====================
 

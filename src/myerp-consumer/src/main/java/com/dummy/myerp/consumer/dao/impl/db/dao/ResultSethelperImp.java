@@ -12,6 +12,7 @@ import com.dummy.myerp.model.bean.comptabilite.SequenceEcritureComptable;
 import com.dummy.myerp.technical.exception.FunctionalException;
 import com.dummy.myerp.technical.exception.NotFoundException;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.ResultSetExtractor;
 
 import java.sql.*;
 import java.util.List;
@@ -20,7 +21,9 @@ public class ResultSethelperImp extends ResultSetHelper {
 
 
     // ==================== Constructeurs ====================
-    /** Instance unique de la classe (design pattern Singleton) */
+    /**
+     * Instance unique de la classe (design pattern Singleton)
+     */
     private static final ResultSethelperImp INSTANCE = new ResultSethelperImp();
 
     /**
@@ -40,15 +43,14 @@ public class ResultSethelperImp extends ResultSetHelper {
     }
 
 
+    //myerp.datasource.url=jdbc:postgresql://localhost:9032/db_myerp
 
-    //myerp.datasource.url=jdbc:postgresql://127.0.0.1:5432/my_erp
-
-    private Connection connect() {
+    private Connection Connect() {
         // SQLite connection string
-        String url = "jdbc:postgresql://127.0.0.1:9032/db_myerp";
+        String url = "jdbc:postgresql://localhost:5432/my_erp";
         Connection conn = null;
         try {
-            conn = DriverManager.getConnection(url, "usr_myerp","myerp");
+            conn = DriverManager.getConnection(url, "usr_myerp", "myerp");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -59,54 +61,24 @@ public class ResultSethelperImp extends ResultSetHelper {
     /**
      * Contrôle Long
      */
-    public Long LongTest(String column){
+    public Long LongTest(String column) throws SQLException {
         String sql = "SELECT * FROM myerp.compte_comptable";
-        Long RSLongTest = null;
-        try (Connection conn = this.connect();
-             Statement stmt  = conn.createStatement();
-             ResultSet rs = stmt.executeQuery(sql)){
-            if(!rs.wasNull()) {
-                RSLongTest = getLong(rs, "numero");
-            }
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
+        Connection con = Connect();
+        PreparedStatement psmt = con.prepareStatement(sql) ;
+        ResultSet rs = psmt.executeQuery() ;
+        Long RSLongTest = getLong(rs, column);
         return RSLongTest;
     }
 
     /**
      * Contrôle Integer
      */
-    public Integer IntegerTest(String column){
+    public Integer IntegerTest(String column) throws SQLException {
         String sql = "SELECT * FROM myerp.compte_comptable";
-        Integer RSIntegerTest = null;
-        try (Connection conn = this.connect();
-             Statement stmt  = conn.createStatement();
-             ResultSet rs = stmt.executeQuery(sql)){
-            if(!rs.wasNull()) {
-                RSIntegerTest = getInteger(rs, "numero");
-            }
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
+        Connection con = Connect();
+        PreparedStatement psmt = con.prepareStatement(sql) ;
+        ResultSet rs = psmt.executeQuery() ;
+        Integer RSIntegerTest = getInteger(rs, column);
         return RSIntegerTest;
-    }
-
-    /**
-     * Contrôle Date
-     */
-    public java.util.Date DateTest(String column){
-        String sql = "SELECT * FROM myerp.compte_comptable";
-        java.util.Date RSDateTest = null;
-        try (Connection conn = this.connect();
-             Statement stmt  = conn.createStatement();
-             ResultSet rs = stmt.executeQuery(sql)){
-            if(!rs.wasNull()) {
-                RSDateTest = getDate(rs, "numero");
-            }
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-        return RSDateTest;
     }
 }
