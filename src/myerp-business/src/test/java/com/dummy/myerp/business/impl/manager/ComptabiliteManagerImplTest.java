@@ -47,7 +47,7 @@ public class ComptabiliteManagerImplTest extends BusinessTestCase {
         vEcritureComptable.setId(22);
         vEcritureComptable.setJournal(new JournalComptable("AC", "Achat"));
         Date date = new Date();
-        date.setYear(2016);
+        date.setTime(1477314007);
         vEcritureComptable.setDate(date);
         Calendar calendar = new GregorianCalendar();
         calendar.setTime(vEcritureComptable.getDate());
