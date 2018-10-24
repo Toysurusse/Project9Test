@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="76792436-4903-4f48-ab0e-dc0b9c5c7b8c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/myerp-business/src/test-business/java/com/dummy/myerp/testbusiness/business/SpringRegistry.java" afterPath="$PROJECT_DIR$/src/myerp-business/src/test-business/java/com/dummy/myerp/testbusiness/business/SpringRegistry.java" />
       <change beforePath="$PROJECT_DIR$/src/myerp-business/src/test/java/com/dummy/myerp/business/impl/manager/ComptabiliteManagerImplTest.java" afterPath="$PROJECT_DIR$/src/myerp-business/src/test/java/com/dummy/myerp/business/impl/manager/ComptabiliteManagerImplTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/src/myerp-model/target/" />
@@ -64,21 +63,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ComptabiliteDaoTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/myerp-consumer/src/test/java/com/dummy/myerp/consumer/dao/impl/db/dao/ComptabiliteDaoTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="40" column="10" lean-forward="false" selection-start-line="40" selection-start-column="10" selection-end-line="40" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ComptabiliteManagerImplTest.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ComptabiliteManagerImplTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/myerp-business/src/test/java/com/dummy/myerp/business/impl/manager/ComptabiliteManagerImplTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="499">
-              <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+            <state relative-caret-position="431">
+              <caret line="46" column="0" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -109,24 +98,14 @@
       <file leaf-file-name="BusinessProxyImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/myerp-business/src/main/java/com/dummy/myerp/business/impl/BusinessProxyImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
+            <state relative-caret-position="584">
               <caret line="50" column="26" lean-forward="true" selection-start-line="50" selection-start-column="26" selection-end-line="50" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TransactionManager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/myerp-business/src/main/java/com/dummy/myerp/business/impl/TransactionManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="22" column="6" lean-forward="true" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DaoProxyTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DaoProxyTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/myerp-business/src/test/java/com/dummy/myerp/business/impl/manager/DaoProxyTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="204">
@@ -151,8 +130,28 @@
       <file leaf-file-name="SpringRegistry.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/myerp-business/src/test-business/java/com/dummy/myerp/testbusiness/business/SpringRegistry.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+            <state relative-caret-position="306">
+              <caret line="83" column="46" lean-forward="true" selection-start-line="83" selection-start-column="46" selection-end-line="83" selection-end-column="46" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BusinessProxy.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/myerp-business/src/main/java/com/dummy/myerp/business/contrat/BusinessProxy.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="17" column="23" lean-forward="true" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ComptabiliteManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/myerp-business/src/main/java/com/dummy/myerp/business/contrat/manager/ComptabiliteManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="15" column="17" lean-forward="false" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -251,8 +250,8 @@
         <option value="$PROJECT_DIR$/src/myerp-consumer/src/main/java/com/dummy/myerp/consumer/dao/impl/db/dao/ResultSethelperImp.java" />
         <option value="$PROJECT_DIR$/src/myerp-business/src/main/java/com/dummy/myerp/business/impl/BusinessProxyImpl.java" />
         <option value="$PROJECT_DIR$/src/myerp-business/src/test-business/java/com/dummy/myerp/testbusiness/business/SpringRegistry.java" />
-        <option value="$PROJECT_DIR$/src/myerp-business/src/test/java/com/dummy/myerp/business/impl/manager/ComptabiliteManagerImplTest.java" />
         <option value="$PROJECT_DIR$/src/myerp-business/src/test/java/com/dummy/myerp/business/impl/manager/DaoProxyTest.java" />
+        <option value="$PROJECT_DIR$/src/myerp-business/src/test/java/com/dummy/myerp/business/impl/manager/ComptabiliteManagerImplTest.java" />
       </list>
     </option>
   </component>
@@ -910,7 +909,7 @@
       <workItem from="1539933674122" duration="13104000" />
       <workItem from="1539950330909" duration="19575000" />
       <workItem from="1540044813030" duration="10419000" />
-      <workItem from="1540195926335" duration="8685000" />
+      <workItem from="1540195926335" duration="8961000" />
     </task>
     <servers />
   </component>
@@ -923,7 +922,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="99263000" />
+    <option name="totallyTimeSpent" value="99539000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1042,20 +1041,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/src/site/site.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-408">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/src/build/checkstyle.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-10155">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="185">
@@ -1386,36 +1371,52 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/myerp-business/src/main/java/com/dummy/myerp/business/impl/BusinessProxyImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/myerp-business/src/test/java/com/dummy/myerp/business/impl/manager/DaoProxyTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="50" column="26" lean-forward="true" selection-start-line="50" selection-start-column="26" selection-end-line="50" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/myerp-business/src/test-business/java/com/dummy/myerp/testbusiness/business/SpringRegistry.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/myerp-business/src/test/java/com/dummy/myerp/business/impl/manager/ComptabiliteManagerImplTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="499">
-          <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+        <state relative-caret-position="204">
+          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/myerp-business/src/test/java/com/dummy/myerp/business/impl/manager/DaoProxyTest.java">
+    <entry file="file://$PROJECT_DIR$/src/myerp-business/src/test-business/java/com/dummy/myerp/testbusiness/business/SpringRegistry.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+        <state relative-caret-position="306">
+          <caret line="83" column="46" lean-forward="true" selection-start-line="83" selection-start-column="46" selection-end-line="83" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/myerp-business/src/main/java/com/dummy/myerp/business/contrat/manager/ComptabiliteManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="15" column="17" lean-forward="false" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/myerp-business/src/main/java/com/dummy/myerp/business/contrat/BusinessProxy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="23" lean-forward="true" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/myerp-business/src/main/java/com/dummy/myerp/business/impl/BusinessProxyImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="584">
+          <caret line="50" column="26" lean-forward="true" selection-start-line="50" selection-start-column="26" selection-end-line="50" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/myerp-business/src/test/java/com/dummy/myerp/business/impl/manager/ComptabiliteManagerImplTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="431">
+          <caret line="46" column="0" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
