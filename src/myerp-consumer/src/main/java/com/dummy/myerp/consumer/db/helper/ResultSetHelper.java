@@ -50,6 +50,7 @@ public abstract class ResultSetHelper extends AbstractDbConsumer {
      * @throws SQLException sur erreur SQL
      */
     public static Long getLong(ResultSet pRS, String pColName) throws SQLException {
+
         Long vRetour = null;
         Long vLong = (long) pRS.findColumn(pColName);
             vRetour = new Long(vLong);
