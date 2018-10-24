@@ -25,8 +25,8 @@ public class ComptabiliteDaoTest extends ConsumerTestCase{
     @Rule
     public ExpectedException thrown = ExpectedException.none();
 
-    private static ResultSethelperImp RS = new ResultSethelperImp();
-    private static ComptabiliteDaoImpl dao = new ComptabiliteDaoImpl();
+    private static ResultSethelperImp RS = ResultSethelperImp.getInstance();
+    private static ComptabiliteDaoImpl dao = ComptabiliteDaoImpl.getInstance();
     private static EcritureComptable vEcritureComptable = new EcritureComptable();
     private static Date vCurrentDate = new Date();
     private static Integer vCurrentYear = LocalDateTime.ofInstant(vCurrentDate.toInstant(), ZoneId.systemDefault()).toLocalDate().getYear();
@@ -35,6 +35,7 @@ public class ComptabiliteDaoTest extends ConsumerTestCase{
 
     @Test
     public void getTestResultTest() throws SQLException {
+
         RS.IntegerTest("numero");
         RS.LongTest("numero");
         //String exception ="Le nom de colonne test n'a pas été trouvé dans ce ResultSet.";
