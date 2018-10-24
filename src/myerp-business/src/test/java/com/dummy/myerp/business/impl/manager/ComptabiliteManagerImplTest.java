@@ -5,14 +5,20 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-import com.dummy.myerp.business.contrat.manager.ComptabiliteManager;
+import com.dummy.myerp.business.contrat.BusinessProxy;
+import com.dummy.myerp.business.impl.BusinessProxyImpl;
+import com.dummy.myerp.business.impl.TransactionManager;
+import com.dummy.myerp.consumer.dao.contrat.ComptabiliteDao;
 import com.dummy.myerp.consumer.dao.contrat.DaoProxy;
+import com.dummy.myerp.consumer.dao.impl.DaoProxyImpl;
+import com.dummy.myerp.consumer.dao.impl.db.dao.ComptabiliteDaoImpl;
 import com.dummy.myerp.model.bean.comptabilite.CompteComptable;
 import com.dummy.myerp.model.bean.comptabilite.EcritureComptable;
 import com.dummy.myerp.model.bean.comptabilite.JournalComptable;
 import com.dummy.myerp.model.bean.comptabilite.LigneEcritureComptable;
 import com.dummy.myerp.technical.exception.FunctionalException;
 import com.dummy.myerp.testbusiness.business.BusinessTestCase;
+import com.dummy.myerp.testbusiness.business.SpringRegistry;
 import org.junit.*;
 import org.junit.rules.ExpectedException;
 
@@ -30,8 +36,13 @@ public class ComptabiliteManagerImplTest extends BusinessTestCase {
 
     @BeforeClass
     public static void setUpBeforeClass() throws Exception {
-        DaoProxy daoProxy = new DaoProxyTest(new ComptabiliteDaoTest());
-        ComptabiliteManagerImpl.configure( null, daoProxy, null);
+        DaoProxyTest daoProxy= new DaoProxyTest(new ComptabiliteDaoTest());
+        SpringRegistry.getTransactionManager().beginTransactionMyERP();
+        SpringRegistry.getTransactionManager().commitMyERP(SpringRegistry.getTransactionManager().beginTransactionMyERP());
+        SpringRegistry.getTransactionManager().rollbackMyERP(SpringRegistry.getTransactionManager().beginTransactionMyERP());
+        SpringRegistry.getTransactionManager().beginTransactionMyERP();
+        BusinessProxy business = BusinessProxyImpl.getInstance(daoProxy,SpringRegistry.getTransactionManager());
+        ComptabiliteManagerImpl.configure( SpringRegistry.getBusinessProxy(), daoProxy, SpringRegistry.getTransactionManager());
     }
 
 
