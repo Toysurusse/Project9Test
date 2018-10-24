@@ -47,7 +47,7 @@ public class ResultSethelperImp extends ResultSetHelper {
 
     private Connection Connect() {
         // SQLite connection string
-        String url = "jdbc:postgresql://localhost:5432/my_erp";
+        String url = "jdbc:postgresql://localhost:9032/db_myerp";
         Connection conn = null;
         try {
             conn = DriverManager.getConnection(url, "usr_myerp", "myerp");
