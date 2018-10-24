@@ -7,6 +7,7 @@ import java.util.GregorianCalendar;
 import java.util.List;
 
 import com.dummy.myerp.business.contrat.BusinessProxy;
+import com.dummy.myerp.business.impl.AbstractBusinessManager;
 import com.dummy.myerp.business.impl.BusinessProxyImpl;
 import com.dummy.myerp.model.bean.comptabilite.CompteComptable;
 import com.dummy.myerp.model.bean.comptabilite.EcritureComptable;
@@ -21,7 +22,7 @@ import org.junit.rules.ExpectedException;
 import static org.junit.Assert.*;
 
 
-public class ComptabiliteManagerImplTest extends BusinessTestCase {
+public class ComptabiliteManagerImplTest extends AbstractBusinessManager {
 
     @Rule
     public ExpectedException thrown = ExpectedException.none();
@@ -39,12 +40,14 @@ public class ComptabiliteManagerImplTest extends BusinessTestCase {
         SpringRegistry.getTransactionManager().beginTransactionMyERP();
 
         BusinessProxy business = BusinessProxyImpl.getInstance(daoProxy,SpringRegistry.getTransactionManager());
-        ComptabiliteManagerImpl.configure( SpringRegistry.getBusinessProxy(), daoProxy, SpringRegistry.getTransactionManager());
+        ComptabiliteManagerImpl.configure(SpringRegistry.getBusinessProxy(), daoProxy, SpringRegistry.getTransactionManager());
     }
 
 
     @Before
     public void setUp() throws FunctionalException {
+        Assert.assertNotNull(getBusinessProxy());
+        Assert.assertNotNull(getBusinessProxy().getComptabiliteManager());
         // Doit être une EcritureComptable valide
         vEcritureComptable = new EcritureComptable();
         vEcritureComptable.setId(22);
