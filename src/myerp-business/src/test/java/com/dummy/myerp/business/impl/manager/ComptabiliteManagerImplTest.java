@@ -95,9 +95,7 @@ public class ComptabiliteManagerImplTest extends BusinessTestCase {
         // id == null
         try {
             vEcritureComptable.setId(null);
-
             manager.checkEcritureComptableContext(vEcritureComptable);
-            fail();
         }
         catch (FunctionalException e) {
             Assert.assertEquals(exception, e.getMessage());
@@ -106,9 +104,7 @@ public class ComptabiliteManagerImplTest extends BusinessTestCase {
         // id != expected
         try {
             vEcritureComptable.setId(33);
-
             manager.checkEcritureComptableContext(vEcritureComptable);
-            fail();
         }
         catch (FunctionalException e) {
             Assert.assertEquals(exception, e.getMessage());
