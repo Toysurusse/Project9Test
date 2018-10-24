@@ -37,7 +37,8 @@ public class ComptabiliteDaoTest extends ConsumerTestCase{
     public void getTestResultTest() throws SQLException {
         RS.IntegerTest("numero");
         RS.LongTest("numero");
-        String exception ="Le nom de colonne test n'a pas été trouvé dans ce ResultSet.";
+        //String exception ="Le nom de colonne test n'a pas été trouvé dans ce ResultSet.";
+        String exception ="The column name test was not found in this";
         try {
             assertNull(RS.IntegerTest("test"));
             fail();
