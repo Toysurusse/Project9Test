@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.List;
 
 import com.dummy.myerp.business.contrat.BusinessProxy;
 import com.dummy.myerp.business.contrat.manager.ComptabiliteManager;
@@ -70,8 +71,11 @@ public class ComptabiliteManagerImplTest extends BusinessTestCase {
     @Test
     public void checkCCJCandEC() throws Exception {
         manager.getListCompteComptable();
-        manager.getListEcritureComptable();
+        List<EcritureComptable> lcomptecomptable = manager.getListEcritureComptable();
         manager.getListJournalComptable();
+
+        manager.deleteEcritureComptable(lcomptecomptable.get(0).getId());
+        manager.insertEcritureComptable(lcomptecomptable.get(0));
     }
 
     @Test
