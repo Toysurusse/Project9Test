@@ -92,7 +92,7 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
                 "/" + String.format("%05d", vNumeroSequence);
         pEcritureComptable.setReference(vReference);
 
-        this.updateEcritureComptable(pEcritureComptable);
+        this.insertEcritureComptable(pEcritureComptable);
         /*
                 4.  Enregistrer (insert/update) la valeur de la séquence en persistance
                     (table sequence_ecriture_comptable)
