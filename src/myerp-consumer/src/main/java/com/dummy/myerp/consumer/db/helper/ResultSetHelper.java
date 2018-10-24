@@ -36,9 +36,7 @@ public abstract class ResultSetHelper extends AbstractDbConsumer {
     public static Integer getInteger(ResultSet pRS, String pColName) throws SQLException {
         Integer vRetour = null;
         int vInt = pRS.findColumn(pColName);
-        if (!pRS.wasNull()) {
             vRetour = new Integer(vInt);
-        }
         return vRetour;
     }
 
@@ -54,9 +52,7 @@ public abstract class ResultSetHelper extends AbstractDbConsumer {
     public static Long getLong(ResultSet pRS, String pColName) throws SQLException {
         Long vRetour = null;
         Long vLong = (long) pRS.findColumn(pColName);
-        if (!pRS.wasNull()) {
             vRetour = new Long(vLong);
-        }
         return vRetour;
     }
 }

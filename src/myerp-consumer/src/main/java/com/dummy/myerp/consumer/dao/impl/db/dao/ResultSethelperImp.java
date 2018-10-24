@@ -45,15 +45,11 @@ public class ResultSethelperImp extends ResultSetHelper {
 
     //myerp.datasource.url=jdbc:postgresql://localhost:9032/db_myerp
 
-    private Connection Connect() {
+    private Connection Connect() throws SQLException {
         // SQLite connection string
         String url = "jdbc:postgresql://localhost:9032/db_myerp";
         Connection conn = null;
-        try {
             conn = DriverManager.getConnection(url, "usr_myerp", "myerp");
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
         return conn;
     }
 
