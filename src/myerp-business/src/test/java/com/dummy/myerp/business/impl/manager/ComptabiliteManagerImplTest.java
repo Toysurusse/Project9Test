@@ -7,7 +7,6 @@ import java.util.GregorianCalendar;
 import java.util.List;
 
 import com.dummy.myerp.business.contrat.BusinessProxy;
-import com.dummy.myerp.business.impl.AbstractBusinessManager;
 import com.dummy.myerp.business.impl.BusinessProxyImpl;
 import com.dummy.myerp.model.bean.comptabilite.CompteComptable;
 import com.dummy.myerp.model.bean.comptabilite.EcritureComptable;
@@ -22,7 +21,7 @@ import org.junit.rules.ExpectedException;
 import static org.junit.Assert.*;
 
 
-public class ComptabiliteManagerImplTest extends AbstractBusinessManager {
+public class ComptabiliteManagerImplTest extends BusinessTestCase {
 
     @Rule
     public ExpectedException thrown = ExpectedException.none();
@@ -32,22 +31,17 @@ public class ComptabiliteManagerImplTest extends AbstractBusinessManager {
 
     @BeforeClass
     public static void setUpBeforeClass() {
-        DaoProxyTest daoProxy= new DaoProxyTest(new ComptabiliteDaoTest());
-
         SpringRegistry.getTransactionManager().beginTransactionMyERP();
         SpringRegistry.getTransactionManager().commitMyERP(SpringRegistry.getTransactionManager().beginTransactionMyERP());
         SpringRegistry.getTransactionManager().rollbackMyERP(SpringRegistry.getTransactionManager().beginTransactionMyERP());
         SpringRegistry.getTransactionManager().beginTransactionMyERP();
-
-        BusinessProxy business = BusinessProxyImpl.getInstance(daoProxy,SpringRegistry.getTransactionManager());
-        ComptabiliteManagerImpl.configure(SpringRegistry.getBusinessProxy(), daoProxy, SpringRegistry.getTransactionManager());
+        BusinessProxy business = BusinessProxyImpl.getInstance(SpringRegistry.getDaoProxy(),SpringRegistry.getTransactionManager());
+        ComptabiliteManagerImpl.configure( SpringRegistry.getBusinessProxy(), SpringRegistry.getDaoProxy(), SpringRegistry.getTransactionManager());
     }
 
 
     @Before
     public void setUp() throws FunctionalException {
-        getBusinessProxy();
-        Assert.assertNotNull(getBusinessProxy().getComptabiliteManager());
         // Doit être une EcritureComptable valide
         vEcritureComptable = new EcritureComptable();
         vEcritureComptable.setId(22);
