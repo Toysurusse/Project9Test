@@ -37,7 +37,6 @@ public class ComptabiliteManagerImplTest extends BusinessTestCase {
         SpringRegistry.getTransactionManager().beginTransactionMyERP();
         BusinessProxy business = BusinessProxyImpl.getInstance(SpringRegistry.getDaoProxy(),SpringRegistry.getTransactionManager());
         ComptabiliteManagerImpl.configure( SpringRegistry.getBusinessProxy(), SpringRegistry.getDaoProxy(), SpringRegistry.getTransactionManager());
-        SpringRegistry.getBusinessProxy().getComptabiliteManager();
     }
 
 
