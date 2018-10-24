@@ -52,16 +52,16 @@ public class ComptabiliteManagerImplTest extends BusinessTestCase {
         vEcritureComptable.setReference("AC-" + calendar.get(Calendar.YEAR) + "/00022");
         vEcritureComptable.setLibelle("Libelle");
         vEcritureComptable.getListLigneEcriture()
-                .add(new LigneEcritureComptable(new CompteComptable(1), null, new BigDecimal(123), null));
+                .add(new LigneEcritureComptable(new CompteComptable(411), null, new BigDecimal(123), null));
         vEcritureComptable.getListLigneEcriture()
-                .add(new LigneEcritureComptable(new CompteComptable(2), null, null, new BigDecimal(123)));
+                .add(new LigneEcritureComptable(new CompteComptable(512), null, null, new BigDecimal(123)));
     }
 
 
     @Test
     public void checkCCJCandEC() throws Exception {
         manager.getListCompteComptable();
-        List<EcritureComptable> lcomptecomptable = manager.getListEcritureComptable();
+        manager.getListEcritureComptable();
         manager.getListJournalComptable();
 
         manager.insertEcritureComptable(vEcritureComptable);
