@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="76792436-4903-4f48-ab0e-dc0b9c5c7b8c" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/myerp-technical/src/test/java/com/dummy/myerp/technical/util/spring/NullFactoryBeanTest.java" />
-      <change beforePath="$PROJECT_DIR$/src/myerp-technical/src/test/java/com/dummy/myerp/technical/exception/FunctionalExceptionTest.java" afterPath="$PROJECT_DIR$/src/myerp-technical/src/test/java/com/dummy/myerp/technical/exception/FunctionalExceptionTest.java" />
+      <change beforePath="$PROJECT_DIR$/src/myerp-technical/src/test/java/com/dummy/myerp/technical/util/spring/NullFactoryBeanTest.java" afterPath="$PROJECT_DIR$/src/myerp-technical/src/test/java/com/dummy/myerp/technical/util/spring/NullFactoryBeanTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/src/myerp-model/target/" />
     <ignored path="$PROJECT_DIR$/src/myerp-business/target/" />
@@ -97,7 +96,7 @@
       <file leaf-file-name="FunctionalExceptionTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/myerp-technical/src/test/java/com/dummy/myerp/technical/exception/FunctionalExceptionTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1360">
+            <state relative-caret-position="340">
               <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -132,11 +131,11 @@
       <file leaf-file-name="NullFactoryBeanTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/myerp-technical/src/test/java/com/dummy/myerp/technical/util/spring/NullFactoryBeanTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+            <state relative-caret-position="153">
+              <caret line="9" column="9" lean-forward="true" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#365#373#0" expanded="true" />
+                <element signature="e#353#361#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -303,7 +302,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-7" />
     <option name="y" value="3" />
     <option name="width" value="1912" />
@@ -1070,7 +1069,7 @@
       <workItem from="1539933674122" duration="13104000" />
       <workItem from="1539950330909" duration="19575000" />
       <workItem from="1540044813030" duration="10419000" />
-      <workItem from="1540195926335" duration="34470000" />
+      <workItem from="1540195926335" duration="34783000" />
     </task>
     <servers />
   </component>
@@ -1086,7 +1085,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="125048000" />
+    <option name="totallyTimeSpent" value="125361000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1098,7 +1097,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1588,16 +1587,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/myerp-technical/src/test/java/com/dummy/myerp/technical/exception/FunctionalExceptionTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1360">
-          <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/myerp-consumer/src/test-consumer/java/com/dummy/myerp/testconsumer/consumer/TestInitSpring.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -1617,13 +1606,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/myerp-technical/src/test/java/com/dummy/myerp/technical/util/spring/NullFactoryBeanTest.java">
+    <entry file="file://$PROJECT_DIR$/src/myerp-technical/src/test/java/com/dummy/myerp/technical/exception/FunctionalExceptionTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+        <state relative-caret-position="340">
+          <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#365#373#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/myerp-technical/src/test/java/com/dummy/myerp/technical/util/spring/NullFactoryBeanTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="9" lean-forward="true" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#353#361#0" expanded="true" />
           </folding>
         </state>
       </provider>

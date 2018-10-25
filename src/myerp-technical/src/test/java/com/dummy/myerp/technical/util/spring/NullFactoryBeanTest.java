@@ -2,7 +2,7 @@ package com.dummy.myerp.technical.util.spring;
 
 import com.dummy.myerp.technical.exception.FunctionalException;
 import org.junit.Assert;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 public class NullFactoryBeanTest {
 
