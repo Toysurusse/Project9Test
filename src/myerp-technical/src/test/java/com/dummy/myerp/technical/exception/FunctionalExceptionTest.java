@@ -15,6 +15,19 @@ public class FunctionalExceptionTest {
                     "Unable to get object");
         }
     }
+
+    private void tryTestCause (Object object) throws NotFoundException{
+        if(object==null){
+            throw new NotFoundException(new Throwable());
+        }
+    }
+
+    private void tryTestCauseMessage (Object object) throws NotFoundException{
+        if(object==null){
+            throw new NotFoundException("Unable to get object", new Throwable());
+        }
+    }
+
     private void tryFunctional (Object object) throws FunctionalException{
         if(object==null){
             throw new FunctionalException(
@@ -33,6 +46,8 @@ public class FunctionalExceptionTest {
     public void testNotFound() throws NotFoundException {
         Object object=null;
         tryTest(object);
+        tryTestCause(object);
+        tryTestCauseMessage(object);
     }
 
     @Test(expected = FunctionalException.class)
