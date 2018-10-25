@@ -55,9 +55,6 @@ public abstract class AbstractDbConsumer {
      */
     protected DataSource getDataSource(DataSourcesEnum pDataSourceId) {
         DataSource vRetour = mapDataSource.get(pDataSourceId);
-        if (vRetour == null) {
-            throw new UnsatisfiedLinkError("La DataSource suivante n'a pas été initialisée : " + pDataSourceId);
-        }
         return vRetour;
     }
 
@@ -97,15 +94,7 @@ public abstract class AbstractDbConsumer {
         DataSourcesEnum[] vDataSourceIds = DataSourcesEnum.values();
         for (DataSourcesEnum vDataSourceId : vDataSourceIds) {
             DataSource vDataSource = pMapDataSource.get(vDataSourceId);
-            // On test si la DataSource est configurée
-            // (NB : elle est considérée comme configurée si elle est dans pMapDataSource mais à null)
-            if (vDataSource == null) {
-                if (!pMapDataSource.containsKey(vDataSourceId)) {
-                    LOGGER.error("La DataSource " + vDataSourceId + " n'a pas été initialisée !");
-                }
-            } else {
                 vMapDataSource.put(vDataSourceId, vDataSource);
-            }
         }
         mapDataSource = vMapDataSource;
     }
