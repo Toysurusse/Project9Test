@@ -30,15 +30,22 @@ public class FunctionalExceptionTest {
 
 
     @Test(expected = NotFoundException.class)
-    public void testReadFile() throws NotFoundException, FunctionalException, TechnicalException {
+    public void testNotFound() throws NotFoundException {
         Object object=null;
         tryTest(object);
-        tryFunctional(object);
-        tryTechnical(object);
     }
 
+    @Test(expected = FunctionalException.class)
+    public void testFunctional() throws FunctionalException {
+        Object object=null;
+        tryFunctional(object);
+    }
 
-
+    @Test(expected = TechnicalException.class)
+    public void testTechnical() throws TechnicalException {
+        Object object=null;
+        tryTechnical(object);
+    }
 
 
 
