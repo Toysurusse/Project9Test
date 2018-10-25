@@ -15,6 +15,11 @@ public class FunctionalExceptionTest {
                     "Unable to get object");
         }
     }
+    private void tryTestVide (Object object) throws NotFoundException{
+        if(object==null){
+            throw new NotFoundException();
+        }
+    }
     private void tryTestCause (Object object) throws NotFoundException{
         if(object==null){
             throw new NotFoundException(new Throwable());
@@ -68,8 +73,11 @@ public class FunctionalExceptionTest {
     public void testNotFound() throws NotFoundException {
         Object object=null;
         tryTest(object);
-        tryTestCause(object);
-        tryTestCauseMessage(object);
+    }
+    @Test(expected = NotFoundException.class)
+    public void testNotFoundVide() throws NotFoundException {
+        Object object=null;
+        tryTestVide(object);
     }
     @Test(expected = NotFoundException.class)
     public void testNotFoundC() throws NotFoundException {
