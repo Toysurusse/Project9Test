@@ -50,6 +50,18 @@ public class FunctionalExceptionTest {
         tryTestCauseMessage(object);
     }
 
+    @Test(expected = NotFoundException.class)
+    public void testNotFoundC() throws NotFoundException {
+        Object object=null;
+        tryTestCause(object);
+    }
+
+    @Test(expected = NotFoundException.class)
+    public void testNotFoundCM() throws NotFoundException {
+        Object object=null;
+        tryTestCauseMessage(object);
+    }
+
     @Test(expected = FunctionalException.class)
     public void testFunctional() throws FunctionalException {
         Object object=null;
