@@ -35,7 +35,7 @@ public class ComptabiliteDaoTest extends ConsumerTestCase{
 
     @Test
     public void getTestResultTest() throws SQLException {
-
+        getDaoProxy();
         RS.IntegerTest("numero");
         RS.LongTest("numero");
         //String exception ="Le nom de colonne test n'a pas été trouvé dans ce ResultSet.";
