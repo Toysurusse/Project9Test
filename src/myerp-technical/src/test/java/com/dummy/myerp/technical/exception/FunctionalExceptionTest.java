@@ -15,13 +15,11 @@ public class FunctionalExceptionTest {
                     "Unable to get object");
         }
     }
-
     private void tryTestCause (Object object) throws NotFoundException{
         if(object==null){
             throw new NotFoundException(new Throwable());
         }
     }
-
     private void tryTestCauseMessage (Object object) throws NotFoundException{
         if(object==null){
             throw new NotFoundException("Unable to get object", new Throwable());
@@ -34,12 +32,36 @@ public class FunctionalExceptionTest {
                     "Unable to get object");
         }
     }
+    private void tryFunctionalCause (Object object) throws FunctionalException{
+        if(object==null){
+            throw new FunctionalException(new Throwable());
+        }
+    }
+    private void tryFunctionalMessage (Object object) throws FunctionalException{
+        if(object==null){
+            throw new FunctionalException(
+                    "Unable to get object", new Throwable());
+        }
+    }
+
     private void tryTechnical (Object object) throws TechnicalException{
         if(object==null){
             throw new TechnicalException(
                     "Unable to get object");
         }
     }
+    private void tryTechnicalC (Object object) throws TechnicalException{
+        if(object==null){
+            throw new TechnicalException(new Throwable());
+        }
+    }
+    private void tryTechnicalM (Object object) throws TechnicalException{
+        if(object==null){
+            throw new TechnicalException(
+                    "Unable to get object", new Throwable());
+        }
+    }
+
 
 
     @Test(expected = NotFoundException.class)
@@ -49,7 +71,6 @@ public class FunctionalExceptionTest {
         tryTestCause(object);
         tryTestCauseMessage(object);
     }
-
     @Test(expected = NotFoundException.class)
     public void testNotFoundC() throws NotFoundException {
         Object object=null;
@@ -67,11 +88,31 @@ public class FunctionalExceptionTest {
         Object object=null;
         tryFunctional(object);
     }
+    @Test(expected = FunctionalException.class)
+    public void testFunctionalC() throws FunctionalException {
+        Object object=null;
+        tryFunctionalCause(object);
+    }
+    @Test(expected = FunctionalException.class)
+    public void testFunctionalCM() throws FunctionalException {
+        Object object=null;
+        tryFunctionalMessage(object);
+    }
 
     @Test(expected = TechnicalException.class)
     public void testTechnical() throws TechnicalException {
         Object object=null;
         tryTechnical(object);
+    }
+    @Test(expected = TechnicalException.class)
+    public void testTechnicalC() throws TechnicalException {
+        Object object=null;
+        tryTechnicalC(object);
+    }
+    @Test(expected = TechnicalException.class)
+    public void testTechnicalM() throws TechnicalException {
+        Object object=null;
+        tryTechnicalM(object);
     }
 
 
