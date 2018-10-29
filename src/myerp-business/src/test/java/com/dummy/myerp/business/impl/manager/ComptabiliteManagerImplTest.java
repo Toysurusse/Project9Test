@@ -65,6 +65,8 @@ public class ComptabiliteManagerImplTest extends BusinessTestCase {
     }
 
 
+
+    //TODO : spliter en différents tests : insert/update/Delete/
     @Test
     public void checkCCJCandEC() throws Exception {
         manager.getListCompteComptable();
@@ -90,6 +92,8 @@ public class ComptabiliteManagerImplTest extends BusinessTestCase {
     }
 
 
+
+    //Mocker
     @Test
     public void checkEcritureComptableContext() {
         String exception = ComptabiliteManagerImpl.RG6_EXCEPTION;
