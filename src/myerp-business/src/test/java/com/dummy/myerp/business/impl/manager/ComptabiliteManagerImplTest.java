@@ -68,9 +68,10 @@ public class ComptabiliteManagerImplTest extends BusinessTestCase {
 
     @Test
     public void checkCCJCandEC() throws Exception {
-        manager.getListCompteComptable();
-        manager.getListEcritureComptable();
-        manager.getListJournalComptable();
+        Assert.assertTrue(manager.getListCompteComptable().size()==7);
+        Assert.assertTrue(manager.getListEcritureComptable().size()==5);
+        Assert.assertTrue(manager.getListJournalComptable().size()==4);
+        ;
     }
 
     @Test
@@ -88,6 +89,7 @@ public class ComptabiliteManagerImplTest extends BusinessTestCase {
         control = false;
         vEcritureComptable.setLibelle("Test Libellé");
         manager.updateEcritureComptable(vEcritureComptable);
+        ecritureComptableList.clear();
         ecritureComptableList = manager.getListEcritureComptable();
         for (EcritureComptable ec: ecritureComptableList) {
             if(ec.getLibelle().equals("Test Libellé")){
@@ -98,6 +100,7 @@ public class ComptabiliteManagerImplTest extends BusinessTestCase {
 
         control = true;
         manager.deleteEcritureComptable(vEcritureComptable.getId());
+        ecritureComptableList.clear();
         ecritureComptableList = manager.getListEcritureComptable();
         for (EcritureComptable ec: ecritureComptableList) {
             if(ec.getId()==22){
