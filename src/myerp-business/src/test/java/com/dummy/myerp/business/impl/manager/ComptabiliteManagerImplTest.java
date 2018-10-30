@@ -66,19 +66,53 @@ public class ComptabiliteManagerImplTest extends BusinessTestCase {
 
 
 
-    //TODO : spliter en différents tests : insert/update/Delete/
     @Test
     public void checkCCJCandEC() throws Exception {
         manager.getListCompteComptable();
         manager.getListEcritureComptable();
         manager.getListJournalComptable();
-
-        manager.insertEcritureComptable(vEcritureComptable);
-        vEcritureComptable.setLibelle("Test Libellé");
-        manager.updateEcritureComptable(vEcritureComptable);
-        manager.deleteEcritureComptable(vEcritureComptable.getId());
     }
 
+
+    @Test
+    public void checkInsert() throws Exception {
+        boolean control = false;
+        manager.insertEcritureComptable(vEcritureComptable);
+        List<EcritureComptable> ecritureComptableList = manager.getListEcritureComptable();
+        for (EcritureComptable ec: ecritureComptableList) {
+            if(ec.getId()==22){
+                control = true;
+            }
+        }
+        Assert.assertTrue(control);
+    }
+
+    @Test
+    public void checkUpdate() throws Exception {
+        boolean control = false;
+        vEcritureComptable.setLibelle("Test Libellé");
+        manager.updateEcritureComptable(vEcritureComptable);
+        List<EcritureComptable> ecritureComptableList = manager.getListEcritureComptable();
+        for (EcritureComptable ec: ecritureComptableList) {
+            if(ec.getLibelle().equals("Test Libellé")){
+                control = true;
+            }
+        }
+        Assert.assertTrue(control);
+    }
+
+    @Test
+    public void checkDelete() throws Exception {
+        boolean control = true;
+        manager.deleteEcritureComptable(vEcritureComptable.getId());
+        List<EcritureComptable> ecritureComptableList = manager.getListEcritureComptable();
+        for (EcritureComptable ec: ecritureComptableList) {
+            if(ec.getId()==22){
+                control = false;
+            }
+        }
+        Assert.assertTrue(control);
+    }
 
     @Test
     public void checkAddReference() throws Exception {
