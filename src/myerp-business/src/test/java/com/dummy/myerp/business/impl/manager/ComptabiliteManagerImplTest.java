@@ -81,11 +81,11 @@ public class ComptabiliteManagerImplTest extends BusinessTestCase {
         List<EcritureComptable> ecritureComptableList = manager.getListEcritureComptable();
         for (EcritureComptable ec: ecritureComptableList) {
             System.out.println(ec.getId());
-            if(ec.getId()==22){
+            if(ec.getLibelle().equals("Libelle")){
                 control = true;
             }
         }
-        Assert.assertTrue(control);
+        Assert.assertTrue("L'écriture comptable n'a pas pu être insérée", control);
 
         control = false;
         vEcritureComptable.setLibelle("Test Libellé");
@@ -97,18 +97,18 @@ public class ComptabiliteManagerImplTest extends BusinessTestCase {
                 control = true;
             }
         }
-        Assert.assertTrue(control);
+        Assert.assertTrue("L'écriture comptable n'a pas pu être mise à jour", control);
 
         control = true;
         manager.deleteEcritureComptable(vEcritureComptable.getId());
         ecritureComptableList.clear();
         ecritureComptableList = manager.getListEcritureComptable();
         for (EcritureComptable ec: ecritureComptableList) {
-            if(ec.getId()==22){
+            if(ec.getLibelle().equals("Test Libellé")){
                 control = false;
             }
         }
-        Assert.assertTrue(control);
+        Assert.assertTrue("L'écriture comptable n'a pas pu être supprimée", control);
 
     }
 
