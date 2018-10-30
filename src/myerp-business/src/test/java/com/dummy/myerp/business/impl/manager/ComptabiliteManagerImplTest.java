@@ -69,6 +69,7 @@ public class ComptabiliteManagerImplTest extends BusinessTestCase {
     @Test
     public void checkCCJCandEC() throws Exception {
         Assert.assertTrue(manager.getListCompteComptable().size()==7);
+        System.out.println(manager.getListEcritureComptable().size());
         Assert.assertTrue(manager.getListEcritureComptable().size()==5);
         Assert.assertTrue(manager.getListJournalComptable().size()==4);
         ;
