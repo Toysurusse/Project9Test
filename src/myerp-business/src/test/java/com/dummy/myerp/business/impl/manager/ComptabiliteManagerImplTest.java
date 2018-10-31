@@ -9,6 +9,7 @@ import java.util.Date;
 
 import com.dummy.myerp.consumer.dao.contrat.ComptabiliteDao;
 import com.dummy.myerp.consumer.dao.impl.db.dao.ComptabiliteDaoImpl;
+import com.dummy.myerp.model.bean.comptabilite.*;
 import com.dummy.myerp.technical.exception.NotFoundException;
 import org.junit.Assert;
 import org.junit.Before;
@@ -21,10 +22,6 @@ import com.dummy.myerp.business.contrat.manager.ComptabiliteManager;
 import com.dummy.myerp.consumer.dao.ComptabiliteDaoMock;
 import com.dummy.myerp.consumer.dao.DaoProxyMock;
 import com.dummy.myerp.consumer.dao.contrat.DaoProxy;
-import com.dummy.myerp.model.bean.comptabilite.CompteComptable;
-import com.dummy.myerp.model.bean.comptabilite.EcritureComptable;
-import com.dummy.myerp.model.bean.comptabilite.JournalComptable;
-import com.dummy.myerp.model.bean.comptabilite.LigneEcritureComptable;
 import com.dummy.myerp.technical.exception.FunctionalException;
 import org.mockito.Matchers;
 import org.mockito.Mockito;
@@ -50,7 +47,8 @@ public class ComptabiliteManagerImplTest {
         ComptabiliteManagerImpl.configure(null, daoProxy, null);
 
         when(daoProxy.getComptabiliteDao().getListEcritureComptable()).thenReturn(comptabiliteDaoMock.getListEcritureComptable());
-        
+        when(daoProxy.getComptabiliteDao().getSequenceByCodeAndAnneeCourante(new SequenceEcritureComptable("AC",2016,null))).thenReturn(comptabiliteDaoMock.getSequenceByCodeAndAnneeCourante(new SequenceEcritureComptable("AC",2016,null)));
+
         dateFormat = new SimpleDateFormat("yyyy");
     }
 
@@ -100,7 +98,7 @@ public class ComptabiliteManagerImplTest {
 
         // id != expected
         try {
-            vEcritureComptable.setId(33);
+            vEcritureComptable.setId(-1);
 
             manager.checkEcritureComptableContext(vEcritureComptable);
             fail();
