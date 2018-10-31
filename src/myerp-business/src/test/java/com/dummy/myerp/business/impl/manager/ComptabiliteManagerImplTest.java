@@ -43,12 +43,8 @@ public class ComptabiliteManagerImplTest {
         ComptabiliteDao comptabiliteDao=Mockito.mock(ComptabiliteDao.class);
         DaoProxy daoProxy = new DaoProxyMock(comptabiliteDao);
         ComptabiliteDaoMock comptabiliteDaoMock=new ComptabiliteDaoMock();
-
         ComptabiliteManagerImpl.configure(null, daoProxy, null);
-
         when(daoProxy.getComptabiliteDao().getListEcritureComptable()).thenReturn(comptabiliteDaoMock.getListEcritureComptable());
-        when(daoProxy.getComptabiliteDao().getSequenceByCodeAndAnneeCourante("AC",2018)).thenReturn(comptabiliteDaoMock.getSequenceByCodeAndAnneeCourante(new SequenceEcritureComptable("AC",2018,null)));
-
         dateFormat = new SimpleDateFormat("yyyy");
     }
 
@@ -66,11 +62,7 @@ public class ComptabiliteManagerImplTest {
                 .add(new LigneEcritureComptable(new CompteComptable(1), null, new BigDecimal(123), null));
         vEcritureComptable.getListLigneEcriture()
                 .add(new LigneEcritureComptable(new CompteComptable(2), null, null, new BigDecimal(123)));
-    }
 
-    @Test
-    public void addReference() throws NotFoundException, FunctionalException {
-        manager.addReference(vEcritureComptable);
     }
 
 
@@ -88,7 +80,6 @@ public class ComptabiliteManagerImplTest {
         // id == null
         try {
             vEcritureComptable.setId(null);
-
             manager.checkEcritureComptableContext(vEcritureComptable);
             fail();
         }

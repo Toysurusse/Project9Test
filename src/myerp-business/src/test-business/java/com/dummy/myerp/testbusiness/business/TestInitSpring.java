@@ -8,6 +8,7 @@ import com.dummy.myerp.model.bean.comptabilite.EcritureComptable;
 import com.dummy.myerp.model.bean.comptabilite.JournalComptable;
 import com.dummy.myerp.model.bean.comptabilite.LigneEcritureComptable;
 import com.dummy.myerp.technical.exception.FunctionalException;
+import com.dummy.myerp.technical.exception.NotFoundException;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -113,5 +114,10 @@ public class TestInitSpring extends BusinessTestCase {
         }
         Assert.assertTrue("L'écriture comptable n'a pas pu être supprimée", control);
 
+    }
+
+    @org.junit.Test
+    public void addReference() throws NotFoundException, FunctionalException {
+        manager.addReference(vEcritureComptable);
     }
 }
