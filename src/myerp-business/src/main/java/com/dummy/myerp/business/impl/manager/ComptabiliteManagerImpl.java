@@ -91,7 +91,6 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
                 "-" + vEcritureComptableYear +
                 "/" + String.format("%05d", vNumeroSequence);
         pEcritureComptable.setReference(vReference);
-        System.out.println("Test2");
         /*
                 4.  Enregistrer (insert/update) la valeur de la séquence en persistance
                     (table sequence_ecriture_comptable)
@@ -101,7 +100,6 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
         vNewSequence.setJournalCode(pEcritureComptable.getJournal().getCode());
         vNewSequence.setAnnee(vEcritureComptableYear);
         vNewSequence.setDerniereValeur(vNumeroSequence);
-        System.out.println("Test3");
         this.upsertSequenceEcritureComptable(vNewSequence);
     }
 

@@ -50,7 +50,7 @@ Il comporte :
 *   RG_Compta_1 : Le solde d'un compte comptable est égal à la somme des montants au débit des lignes d'écriture diminuées de la somme des montants au crédit. Si le résultat est positif, le solde est dit "débiteur", si le résultat est négatif le solde est dit "créditeur".
 
 
-    
+    La couche Business permet de générer le solde d'un compte comptable conformément à la règle demandée.
 
 
 
