@@ -25,7 +25,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 /**
  * Classe de test de l'initialisation du contexte Spring
  */
-class TestInitSpring extends BusinessProxyImpl {
+public class TestInitSpring extends BusinessTestCase {
 
     @Rule
     public ExpectedException thrown = ExpectedException.none();
