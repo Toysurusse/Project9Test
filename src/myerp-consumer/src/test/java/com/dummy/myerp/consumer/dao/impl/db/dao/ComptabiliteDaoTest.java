@@ -91,9 +91,9 @@ public class ComptabiliteDaoTest extends ConsumerTestCase{
 
     @Test
     public void loadListLigneEcriture() {
-        vEcritureComptable.setId(-5);
+        vEcritureComptable.setId(-2);
         dao.loadListLigneEcriture(vEcritureComptable);
-        assertEquals(2, vEcritureComptable.getListLigneEcriture().size());
+        assertEquals(3, vEcritureComptable.getListLigneEcriture().size());
     }
 
 
