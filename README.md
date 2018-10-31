@@ -80,19 +80,18 @@ Il comporte :
     --> BQ-2016/00001
 
 
-    
-    
+    La couche model contraint le formatage de la référence d'une écriture comptable
+
     La couche Business contrôle via la fonction checkEcritureComptableUnit de la classe ComptabiliteManagerImpl que l'année dans la référence correspond bien à la date de l'écriture, et que le code journal correspond au journal de banque.
     
-    
-
-
+    L'incrémentation du numéro de séquence est incorporé automatiquement à l'aide de la méthode addréférence.
 
 *   RG_Compta_6 : La référence d'une écriture comptable doit être unique, il n'est pas possible de créer plusieurs écritures ayant la même référence.
 
 
     La couche Business contrôle via la fonction checkEcritureComptableContext de la classe ComptabiliteManagerImpl contrôle l'unicité de l'écriture comptable.
 
+    La méthode addRéférence permet de s'assurer de l'unicité d'un référence et de générer automatique le numéro d'index de cette référence
 
 *   RG_Compta_7 : Les montants des lignes d'écritures peuvent comporter 2 chiffres maximum après la virgule.
 

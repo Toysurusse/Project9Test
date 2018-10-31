@@ -260,4 +260,39 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
         }
     }
 
+    public String soldeCompteComptable(int compteComptable) throws FunctionalException {
+        String resultat ="Compte comptable inexistant";
+
+        List<EcritureComptable>ecritureComptableList=getDaoProxy().getComptabiliteDao().getListEcritureComptable();
+
+        BigDecimal TotalDeb=null;
+        BigDecimal TotalCre=null;
+
+        for (EcritureComptable ec:ecritureComptableList) {
+            for (LigneEcritureComptable lec:ec.getListLigneEcriture()) {
+                if (lec.getCompteComptable().getNumero()==compteComptable){
+                    TotalCre=ec.getTotalCredit();
+                    TotalDeb=ec.getTotalDebit();
+                }
+            }
+        }
+
+        if(TotalCre!=null){
+            if (TotalCre.compareTo(TotalDeb)==0){
+                resultat="Equilibré";
+            }
+            else if (TotalDeb.compareTo(TotalCre)>0){
+                resultat="Débiteur";
+            }
+            else if (TotalDeb.compareTo(TotalCre)<0){
+                resultat="Créditeur";
+            }
+        }
+        if(resultat.equals("Compte comptable inexistant")){
+            throw new FunctionalException("Le compte comptable n'éxiste pas");
+        }
+
+        return resultat;
+    }
+
 }

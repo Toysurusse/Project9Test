@@ -120,4 +120,17 @@ public class TestInitSpring extends BusinessTestCase {
     public void addReference() throws NotFoundException, FunctionalException {
         manager.addReference(vEcritureComptable);
     }
+
+
+    @org.junit.Test
+    public void TestTotalCompte() throws NotFoundException, FunctionalException {
+        Assert.assertTrue(manager.soldeCompteComptable(401).equals("Equilibré"));
+        Assert.assertTrue(manager.soldeCompteComptable(706).equals("Débiteur"));
+        Assert.assertTrue(manager.soldeCompteComptable(606).equals("Créditeur"));
+    }
+
+    @org.junit.Test(expected = FunctionalException.class)
+    public void testFunctionalCC() throws FunctionalException {
+        manager.soldeCompteComptable(2550);
+    }
 }
