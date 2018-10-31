@@ -71,10 +71,12 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
                 1.  Remonter depuis la persitance la dernière valeur de la séquence du journal pour l'année de l'écriture
                     (table sequence_ecriture_comptable)
         */
+        System.out.println("Test0");
         Integer vEcritureComptableYear = Integer.parseInt(new SimpleDateFormat("yyyy").format(pEcritureComptable.getDate()));
         SequenceEcritureComptable vRechercheSequence = new SequenceEcritureComptable();
         vRechercheSequence.setJournalCode(pEcritureComptable.getJournal().getCode());
         vRechercheSequence.setAnnee(vEcritureComptableYear);
+        System.out.println("Test");
         SequenceEcritureComptable vExistingSequence = getDaoProxy().getComptabiliteDao().getSequenceByCodeAndAnneeCourante(pEcritureComptable.getJournal().getCode(),vEcritureComptableYear);
         /*        2.  * S'il n'y a aucun enregistrement pour le journal pour l'année concernée :
                         1. Utiliser le numéro 1.
@@ -91,7 +93,7 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
                 "-" + vEcritureComptableYear +
                 "/" + String.format("%05d", vNumeroSequence);
         pEcritureComptable.setReference(vReference);
-
+        System.out.println("Test2");
         this.insertEcritureComptable(pEcritureComptable);
         /*
                 4.  Enregistrer (insert/update) la valeur de la séquence en persistance
@@ -101,6 +103,7 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
         vNewSequence.setJournalCode(pEcritureComptable.getJournal().getCode());
         vNewSequence.setAnnee(vEcritureComptableYear);
         vNewSequence.setDerniereValeur(vNumeroSequence);
+        System.out.println("Test3");
         this.upsertSequenceEcritureComptable(vNewSequence);
     }
 
