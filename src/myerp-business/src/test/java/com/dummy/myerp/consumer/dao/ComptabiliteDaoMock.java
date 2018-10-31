@@ -16,21 +16,18 @@ import com.dummy.myerp.technical.exception.FunctionalException;
 import com.dummy.myerp.technical.exception.NotFoundException;
 
 
-public class ComptabiliteDaoMock implements ComptabiliteDao {
+public class ComptabiliteDaoMock {
 
-    @Override
     public List<CompteComptable> getListCompteComptable() {
         return null;
     }
 
 
-    @Override
     public List<JournalComptable> getListJournalComptable() {
         return null;
     }
 
 
-    @Override
     public List<EcritureComptable> getListEcritureComptable() {
 
         List<EcritureComptable> ecritureComptableList=new ArrayList<>();
@@ -43,6 +40,10 @@ public class ComptabiliteDaoMock implements ComptabiliteDao {
         ecritureComptable.setDate(new Date(2016-12-31));
         ecritureComptableList.add(ecritureComptable);
 
+        System.out.println(ecritureComptable.getId());
+        System.out.println(ecritureComptableList.get(0).getId());
+
+
         //INSERT INTO MYERP.ecriture_comptable (id,journal_code,reference,date,libelle) VALUES (	-2,	'VE',	'VE-2016/00002',	'2016-12-30',	'TMA Appli Xxx'	);
         //INSERT INTO MYERP.ecriture_comptable (id,journal_code,reference,date,libelle) VALUES (	-3,	'BQ',	'BQ-2016/00003',	'2016-12-29',	'Paiement Facture F110001'	);
         //INSERT INTO MYERP.ecriture_comptable (id,journal_code,reference,date,libelle) VALUES (	-4,	'VE',	'VE-2016/00004',	'2016-12-28',	'TMA Appli Yyy'	);
@@ -52,13 +53,11 @@ public class ComptabiliteDaoMock implements ComptabiliteDao {
     }
 
 
-    @Override
     public EcritureComptable getEcritureComptable(Integer pId) throws NotFoundException {
         return null;
     }
 
 
-    @Override
     public EcritureComptable getEcritureComptableByRef(String pReference) throws NotFoundException, FunctionalException {
         EcritureComptable vEcritureComptable = new EcritureComptable();
         vEcritureComptable.setId(22);
@@ -76,35 +75,29 @@ public class ComptabiliteDaoMock implements ComptabiliteDao {
     }
 
 
-    @Override
     public void loadListLigneEcriture(EcritureComptable pEcritureComptable) {
 
     }
 
 
-    @Override
     public void insertEcritureComptable(EcritureComptable pEcritureComptable) {
 
     }
 
 
-    @Override
     public void updateEcritureComptable(EcritureComptable pEcritureComptable) {
 
     }
 
 
-    @Override
     public void deleteEcritureComptable(Integer pId) {
 
     }
 
-    @Override
     public SequenceEcritureComptable getSequenceByCodeAndAnneeCourante(SequenceEcritureComptable pSequence) throws NotFoundException {
         return null;
     }
 
-    @Override
     public void upsertSequenceEcritureComptable(SequenceEcritureComptable pSequence) {
 
     }
