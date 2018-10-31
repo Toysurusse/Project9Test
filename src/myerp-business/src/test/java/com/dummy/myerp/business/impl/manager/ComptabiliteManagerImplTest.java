@@ -1,41 +1,47 @@
 package com.dummy.myerp.business.impl.manager;
 
-import java.math.BigDecimal;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.*;
+import static org.junit.Assert.fail;
 
-import com.dummy.myerp.business.contrat.BusinessProxy;
-import com.dummy.myerp.business.impl.BusinessProxyImpl;
+import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import com.dummy.myerp.technical.exception.NotFoundException;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Rule;
+import org.junit.Test;
+import org.junit.rules.ExpectedException;
+
+import com.dummy.myerp.business.contrat.manager.ComptabiliteManager;
+import com.dummy.myerp.consumer.dao.ComptabiliteDaoMock;
+import com.dummy.myerp.consumer.dao.DaoProxyMock;
+import com.dummy.myerp.consumer.dao.contrat.DaoProxy;
 import com.dummy.myerp.model.bean.comptabilite.CompteComptable;
 import com.dummy.myerp.model.bean.comptabilite.EcritureComptable;
 import com.dummy.myerp.model.bean.comptabilite.JournalComptable;
 import com.dummy.myerp.model.bean.comptabilite.LigneEcritureComptable;
 import com.dummy.myerp.technical.exception.FunctionalException;
-import com.dummy.myerp.testbusiness.business.BusinessTestCase;
-import com.dummy.myerp.testbusiness.business.SpringRegistry;
-import org.junit.*;
-import org.junit.rules.ExpectedException;
-
-import static org.junit.Assert.*;
 
 
-public class ComptabiliteManagerImplTest extends BusinessTestCase {
+public class ComptabiliteManagerImplTest {
 
     @Rule
     public ExpectedException thrown = ExpectedException.none();
+
     private ComptabiliteManagerImpl manager = new ComptabiliteManagerImpl();
     private EcritureComptable vEcritureComptable;
+    private static SimpleDateFormat dateFormat;
 
 
     @BeforeClass
-    public static void setUpBeforeClass() {
-        SpringRegistry.getTransactionManager().beginTransactionMyERP();
-        SpringRegistry.getTransactionManager().commitMyERP(SpringRegistry.getTransactionManager().beginTransactionMyERP());
-        SpringRegistry.getTransactionManager().rollbackMyERP(SpringRegistry.getTransactionManager().beginTransactionMyERP());
-        SpringRegistry.getTransactionManager().beginTransactionMyERP();
-        BusinessProxy business = BusinessProxyImpl.getInstance(SpringRegistry.getDaoProxy(),SpringRegistry.getTransactionManager());
-        ComptabiliteManagerImpl.configure( SpringRegistry.getBusinessProxy(), SpringRegistry.getDaoProxy(), SpringRegistry.getTransactionManager());
+    public static void setUpBeforeClass() throws Exception {
+        DaoProxy daoProxy = new DaoProxyMock(new ComptabiliteDaoMock());
+
+        ComptabiliteManagerImpl.configure(null, daoProxy, null);
+
+        dateFormat = new SimpleDateFormat("yyyy");
     }
 
 
@@ -45,30 +51,17 @@ public class ComptabiliteManagerImplTest extends BusinessTestCase {
         vEcritureComptable = new EcritureComptable();
         vEcritureComptable.setId(22);
         vEcritureComptable.setJournal(new JournalComptable("AC", "Achat"));
-        SimpleDateFormat isoFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
-        isoFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
-        Date date = null;
-        try {
-            date = isoFormat.parse("2016-05-23T09:01:02");
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        vEcritureComptable.setDate(date);
-        Calendar calendar = new GregorianCalendar();
-        calendar.setTime(vEcritureComptable.getDate());
-        vEcritureComptable.setReference("AC-" + calendar.get(Calendar.YEAR) + "/00022");
+        vEcritureComptable.setDate(new Date());
+        vEcritureComptable.setReference("AC-" + dateFormat.format(vEcritureComptable.getDate()) + "/00022");
         vEcritureComptable.setLibelle("Libelle");
         vEcritureComptable.getListLigneEcriture()
-                .add(new LigneEcritureComptable(new CompteComptable(411), null, new BigDecimal(123), null));
+                .add(new LigneEcritureComptable(new CompteComptable(1), null, new BigDecimal(123), null));
         vEcritureComptable.getListLigneEcriture()
-                .add(new LigneEcritureComptable(new CompteComptable(512), null, null, new BigDecimal(123)));
+                .add(new LigneEcritureComptable(new CompteComptable(2), null, null, new BigDecimal(123)));
     }
 
-
-
-
     @Test
-    public void checkAddReference() throws Exception {
+    public void addReference() throws NotFoundException, FunctionalException {
         manager.addReference(vEcritureComptable);
     }
 
@@ -79,8 +72,6 @@ public class ComptabiliteManagerImplTest extends BusinessTestCase {
     }
 
 
-
-    //TODO : Mocker
     @Test
     public void checkEcritureComptableContext() {
         String exception = ComptabiliteManagerImpl.RG6_EXCEPTION;
@@ -88,22 +79,23 @@ public class ComptabiliteManagerImplTest extends BusinessTestCase {
         // id == null
         try {
             vEcritureComptable.setId(null);
-            vEcritureComptable.setReference("AA-2018/00001");
+
             manager.checkEcritureComptableContext(vEcritureComptable);
             fail();
         }
         catch (FunctionalException e) {
-            Assert.assertEquals("La référence d'une écriture comptable doit être unique.", e.getMessage());
+            Assert.assertEquals(exception, e.getMessage());
         }
 
         // id != expected
         try {
-            vEcritureComptable.setId(-5);
+            vEcritureComptable.setId(33);
+
             manager.checkEcritureComptableContext(vEcritureComptable);
             fail();
         }
         catch (FunctionalException e) {
-            Assert.assertEquals("La référence d'une écriture comptable doit être unique.", e.getMessage());
+            Assert.assertEquals(exception, e.getMessage());
         }
     }
 
@@ -113,9 +105,7 @@ public class ComptabiliteManagerImplTest extends BusinessTestCase {
         vEcritureComptable.setReference(null);
         manager.checkEcritureComptableUnit(vEcritureComptable);
 
-        Calendar calendar = new GregorianCalendar();
-        calendar.setTime(vEcritureComptable.getDate());
-        vEcritureComptable.setReference("AC-" + calendar.get(Calendar.YEAR) + "/00022");
+        vEcritureComptable.setReference("AC-" + dateFormat.format(vEcritureComptable.getDate()) + "/00022");
         manager.checkEcritureComptableUnit(vEcritureComptable);
     }
 
@@ -166,9 +156,7 @@ public class ComptabiliteManagerImplTest extends BusinessTestCase {
         thrown.expect(FunctionalException.class);
         thrown.expectMessage(ComptabiliteManagerImpl.RG5_CODE_EXCEPTION);
 
-        Calendar calendar = new GregorianCalendar();
-        calendar.setTime(vEcritureComptable.getDate());
-        vEcritureComptable.setReference("AV-" + calendar.get(Calendar.YEAR) + "/00022");
+        vEcritureComptable.setReference("AV-" + dateFormat.format(vEcritureComptable.getDate()) + "/00022");
 
         manager.checkEcritureComptableUnit(vEcritureComptable);
     }
@@ -179,7 +167,7 @@ public class ComptabiliteManagerImplTest extends BusinessTestCase {
         thrown.expect(FunctionalException.class);
         thrown.expectMessage(ComptabiliteManagerImpl.RG5_DATE_EXCEPTION);
 
-        vEcritureComptable.setReference("AC-1967/00022");
+        vEcritureComptable.setReference("AC-1963/00022");
 
         manager.checkEcritureComptableUnit(vEcritureComptable);
     }
