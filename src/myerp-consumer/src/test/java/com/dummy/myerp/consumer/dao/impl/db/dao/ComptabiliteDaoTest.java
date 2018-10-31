@@ -159,7 +159,7 @@ public class ComptabiliteDaoTest extends ConsumerTestCase{
     	SequenceEcritureComptable vRechercheSequence = new SequenceEcritureComptable();
         vRechercheSequence.setJournalCode("OD");
         vRechercheSequence.setAnnee(2016);
-        SequenceEcritureComptable vExistingSequence = dao.getSequenceByCodeAndAnneeCourante(vRechercheSequence);
+        SequenceEcritureComptable vExistingSequence = dao.getSequenceByCodeAndAnneeCourante("OD",2016);
 
         if (vExistingSequence != null) {
             assertEquals("OD", vExistingSequence.getJournalCode());
