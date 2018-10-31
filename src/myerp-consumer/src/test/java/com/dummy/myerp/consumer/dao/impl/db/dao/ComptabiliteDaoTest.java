@@ -31,31 +31,6 @@ public class ComptabiliteDaoTest extends ConsumerTestCase{
     private static Date vCurrentDate = new Date();
     private static Integer vCurrentYear = LocalDateTime.ofInstant(vCurrentDate.toInstant(), ZoneId.systemDefault()).toLocalDate().getYear();
 
-    // ==================== Test Resultset Helper ====================
-
-    @Test
-    public void getTestResultTest() throws SQLException {
-        getDaoProxy();
-        RS.IntegerTest("numero");
-        RS.LongTest("numero");
-        //String exception ="Le nom de colonne test n'a pas été trouvé dans ce ResultSet.";
-        String exception ="The column name test was not found in this ResultSet.";
-        try {
-            assertNull(RS.IntegerTest("test"));
-            fail();
-        }
-        catch (SQLException e) {
-            Assert.assertEquals(exception, e.getMessage());
-        }
-
-        try {
-            assertNull(RS.LongTest("test"));
-            fail();
-        }
-        catch (SQLException e) {
-            Assert.assertEquals(exception, e.getMessage());
-        }
-    }
 
     // ==================== CompteComptable - GET ====================
 
@@ -191,7 +166,31 @@ public class ComptabiliteDaoTest extends ConsumerTestCase{
             assertEquals(2016, vExistingSequence.getAnnee().intValue());
             assertEquals(88, vExistingSequence.getDerniereValeur().intValue());
         } else fail("Incorrect result size: expected 1, actual 0");
+    }
 
-      
+    // ==================== Test Resultset Helper ====================
+
+    @Test
+    public void getTestResultTest() throws SQLException {
+        getDaoProxy();
+        RS.IntegerTest("numero");
+        RS.LongTest("numero");
+        //String exception ="Le nom de colonne test n'a pas été trouvé dans ce ResultSet.";
+        String exception ="The column name test was not found in this ResultSet.";
+        try {
+            assertNull(RS.IntegerTest("test"));
+            fail();
+        }
+        catch (SQLException e) {
+            Assert.assertEquals(exception, e.getMessage());
+        }
+
+        try {
+            assertNull(RS.LongTest("test"));
+            fail();
+        }
+        catch (SQLException e) {
+            Assert.assertEquals(exception, e.getMessage());
+        }
     }
 }
