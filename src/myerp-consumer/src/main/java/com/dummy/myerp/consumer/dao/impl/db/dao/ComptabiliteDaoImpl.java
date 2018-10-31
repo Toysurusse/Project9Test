@@ -275,17 +275,17 @@ public class ComptabiliteDaoImpl extends AbstractDbConsumer implements Comptabil
     
     
 	@Override
-	public SequenceEcritureComptable getSequenceByCodeAndAnneeCourante(SequenceEcritureComptable pSequence) throws NotFoundException {
+	public SequenceEcritureComptable getSequenceByCodeAndAnneeCourante(String jc, int annee) throws NotFoundException {
 		  NamedParameterJdbcTemplate vJdbcTemplate = new NamedParameterJdbcTemplate(getDataSource(DataSourcesEnum.MYERP));
 	        SequenceEcritureComptableRM vRM = new SequenceEcritureComptableRM();
 	        MapSqlParameterSource vSqlParams = new MapSqlParameterSource();
-	        vSqlParams.addValue("journal_code", pSequence.getJournalCode());
-	        vSqlParams.addValue("annee", pSequence.getAnnee());
+	        vSqlParams.addValue("journal_code", jc);
+	        vSqlParams.addValue("annee", annee);
 
 	        try {
 	            return vJdbcTemplate.queryForObject(SQLgetSequenceCodeAndByAnneeCourante, vSqlParams, vRM);
 	        } catch (EmptyResultDataAccessException e) {
-	            throw new NotFoundException("SequenceEcritureComptable non trouvée : journal_code=" + pSequence.getJournalCode() + ", annee=" + pSequence.getAnnee());
+	            throw new NotFoundException("SequenceEcritureComptable non trouvée : journal_code=" + jc + ", annee=" + annee);
 	        }
 		
 	}

@@ -93,9 +93,10 @@ public interface ComptabiliteDao {
     /**
      * Renvoie la séquence selon un code journal et l'année courante {@code pSequence}.
      *
-     * @param pSequence la séquence recherchée
+     * @param jc le code journal recherché
+     * @param annee l'année recherchée
      */
-    SequenceEcritureComptable getSequenceByCodeAndAnneeCourante(SequenceEcritureComptable pSequence) throws NotFoundException;
+    SequenceEcritureComptable getSequenceByCodeAndAnneeCourante(String jc, int annee) throws NotFoundException;
 
     /**
      * Insert une nouvelle séquence écriture comptable ou en met une déjà existante à jour.

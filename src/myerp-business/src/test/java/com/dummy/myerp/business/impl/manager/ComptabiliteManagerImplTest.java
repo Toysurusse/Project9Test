@@ -47,7 +47,7 @@ public class ComptabiliteManagerImplTest {
         ComptabiliteManagerImpl.configure(null, daoProxy, null);
 
         when(daoProxy.getComptabiliteDao().getListEcritureComptable()).thenReturn(comptabiliteDaoMock.getListEcritureComptable());
-        when(daoProxy.getComptabiliteDao().getSequenceByCodeAndAnneeCourante(new SequenceEcritureComptable("AC",2016,null))).thenReturn(comptabiliteDaoMock.getSequenceByCodeAndAnneeCourante(new SequenceEcritureComptable("AC",2016,null)));
+        when(daoProxy.getComptabiliteDao().getSequenceByCodeAndAnneeCourante("AC",2016)).thenReturn(comptabiliteDaoMock.getSequenceByCodeAndAnneeCourante(new SequenceEcritureComptable("AC",2016,null)));
 
         dateFormat = new SimpleDateFormat("yyyy");
     }

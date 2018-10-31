@@ -75,7 +75,7 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
         SequenceEcritureComptable vRechercheSequence = new SequenceEcritureComptable();
         vRechercheSequence.setJournalCode(pEcritureComptable.getJournal().getCode());
         vRechercheSequence.setAnnee(vEcritureComptableYear);
-        SequenceEcritureComptable vExistingSequence = getDaoProxy().getComptabiliteDao().getSequenceByCodeAndAnneeCourante(vRechercheSequence);
+        SequenceEcritureComptable vExistingSequence = getDaoProxy().getComptabiliteDao().getSequenceByCodeAndAnneeCourante(pEcritureComptable.getJournal().getCode(),vEcritureComptableYear);
         /*        2.  * S'il n'y a aucun enregistrement pour le journal pour l'année concernée :
                         1. Utiliser le numéro 1.
                     * Sinon :
