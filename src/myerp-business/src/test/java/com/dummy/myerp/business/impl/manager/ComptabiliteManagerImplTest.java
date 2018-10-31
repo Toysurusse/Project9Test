@@ -66,49 +66,6 @@ public class ComptabiliteManagerImplTest extends BusinessTestCase {
 
 
 
-    @Test
-    public void checkCCJCandEC() {
-        Assert.assertTrue(manager.getListCompteComptable().size()==7);
-        Assert.assertTrue(manager.getListEcritureComptable().size()==5);
-        Assert.assertTrue(manager.getListJournalComptable().size()==4);
-    }
-
-    @Test
-    public void checkInsertToDelete() throws Exception {
-        boolean control = false;
-        manager.insertEcritureComptable(vEcritureComptable);
-        List<EcritureComptable> ecritureComptableList = manager.getListEcritureComptable();
-        for (EcritureComptable ec: ecritureComptableList) {
-            if(ec.getLibelle().equals("Libelle")){
-                control = true;
-            }
-        }
-        Assert.assertTrue("L'écriture comptable n'a pas pu être insérée", control);
-
-        control = false;
-        vEcritureComptable.setLibelle("Test Libellé");
-        manager.updateEcritureComptable(vEcritureComptable);
-        ecritureComptableList.clear();
-        ecritureComptableList = manager.getListEcritureComptable();
-        for (EcritureComptable ec: ecritureComptableList) {
-            if(ec.getLibelle().equals("Test Libellé")){
-                control = true;
-            }
-        }
-        Assert.assertTrue("L'écriture comptable n'a pas pu être mise à jour", control);
-
-        control = true;
-        manager.deleteEcritureComptable(vEcritureComptable.getId());
-        ecritureComptableList.clear();
-        ecritureComptableList = manager.getListEcritureComptable();
-        for (EcritureComptable ec: ecritureComptableList) {
-            if(ec.getLibelle().equals("Test Libellé")){
-                control = false;
-            }
-        }
-        Assert.assertTrue("L'écriture comptable n'a pas pu être supprimée", control);
-
-    }
 
     @Test
     public void checkAddReference() throws Exception {
