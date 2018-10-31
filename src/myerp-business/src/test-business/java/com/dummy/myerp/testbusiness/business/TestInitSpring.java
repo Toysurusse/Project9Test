@@ -74,7 +74,8 @@ public class TestInitSpring extends BusinessTestCase {
     @org.junit.Test
     public void checkCCJCandEC() {
         Assert.assertTrue(manager.getListCompteComptable().size()==7);
-        Assert.assertTrue(manager.getListEcritureComptable().size()==5);
+        System.out.println(manager.getListEcritureComptable().size());
+        Assert.assertTrue(manager.getListEcritureComptable().size()==6);
         Assert.assertTrue(manager.getListJournalComptable().size()==4);
     }
 
