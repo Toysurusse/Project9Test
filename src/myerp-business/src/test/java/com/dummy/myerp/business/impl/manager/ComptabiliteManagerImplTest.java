@@ -7,6 +7,7 @@ import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import com.dummy.myerp.consumer.dao.contrat.ComptabiliteDao;
 import com.dummy.myerp.consumer.dao.impl.db.dao.ComptabiliteDaoImpl;
 import com.dummy.myerp.technical.exception.NotFoundException;
 import org.junit.Assert;
@@ -30,6 +31,7 @@ import org.mockito.Mockito;
 
 public class ComptabiliteManagerImplTest {
 
+
     @Rule
     public ExpectedException thrown = ExpectedException.none();
 
@@ -38,16 +40,17 @@ public class ComptabiliteManagerImplTest {
     private static SimpleDateFormat dateFormat;
 
 
+
     @BeforeClass
     public static void setUpBeforeClass() throws Exception {
-
+        ComptabiliteDao comptabiliteDao=Mockito.mock(ComptabiliteDao.class);
+        DaoProxy daoProxy = new DaoProxyMock(comptabiliteDao);
         ComptabiliteDaoMock comptabiliteDaoMock=new ComptabiliteDaoMock();
-        DaoProxy daoProxy = Mockito.mock(DaoProxy.class);
-
-        when(daoProxy.getComptabiliteDao().getListEcritureComptable()).thenReturn(comptabiliteDaoMock.getListEcritureComptable());
 
         ComptabiliteManagerImpl.configure(null, daoProxy, null);
 
+        when(daoProxy.getComptabiliteDao().getListEcritureComptable()).thenReturn(comptabiliteDaoMock.getListEcritureComptable());
+        
         dateFormat = new SimpleDateFormat("yyyy");
     }
 
@@ -83,6 +86,7 @@ public class ComptabiliteManagerImplTest {
     public void checkEcritureComptableContext() {
         String exception = ComptabiliteManagerImpl.RG6_EXCEPTION;
 
+
         // id == null
         try {
             vEcritureComptable.setId(null);
@@ -96,7 +100,7 @@ public class ComptabiliteManagerImplTest {
 
         // id != expected
         try {
-            vEcritureComptable.setId(-1);
+            vEcritureComptable.setId(33);
 
             manager.checkEcritureComptableContext(vEcritureComptable);
             fail();
