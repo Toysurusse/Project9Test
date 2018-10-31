@@ -148,7 +148,7 @@ public class ComptabiliteDaoTest extends ConsumerTestCase{
 
     @Test
     public  void deleteEcritureComptable() {
-        dao.deleteEcritureComptable(-2);
+        dao.deleteEcritureComptable(-5);
     }
 
 
