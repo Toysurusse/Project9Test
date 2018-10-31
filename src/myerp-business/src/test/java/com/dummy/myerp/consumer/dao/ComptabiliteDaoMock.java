@@ -2,6 +2,7 @@ package com.dummy.myerp.consumer.dao;
 
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -31,7 +32,23 @@ public class ComptabiliteDaoMock implements ComptabiliteDao {
 
     @Override
     public List<EcritureComptable> getListEcritureComptable() {
-        return null;
+
+        List<EcritureComptable> ecritureComptableList=new ArrayList<>();
+
+        EcritureComptable ecritureComptable=new EcritureComptable();
+        ecritureComptable.setLibelle("Cartouches d’imprimante");
+        ecritureComptable.setId(-1);
+        ecritureComptable.setJournal(new JournalComptable("AC","Acomptes"));
+        ecritureComptable.setReference("AC-2016/00001");
+        ecritureComptable.setDate(new Date(2016-12-31));
+        ecritureComptableList.add(ecritureComptable);
+
+        //INSERT INTO MYERP.ecriture_comptable (id,journal_code,reference,date,libelle) VALUES (	-2,	'VE',	'VE-2016/00002',	'2016-12-30',	'TMA Appli Xxx'	);
+        //INSERT INTO MYERP.ecriture_comptable (id,journal_code,reference,date,libelle) VALUES (	-3,	'BQ',	'BQ-2016/00003',	'2016-12-29',	'Paiement Facture F110001'	);
+        //INSERT INTO MYERP.ecriture_comptable (id,journal_code,reference,date,libelle) VALUES (	-4,	'VE',	'VE-2016/00004',	'2016-12-28',	'TMA Appli Yyy'	);
+        //INSERT INTO MYERP.ecriture_comptable (id,journal_code,reference,date,libelle) VALUES (	-5,	'BQ',	'BQ-2016/00005',	'2016-12-27',	'Paiement Facture C110002'	);
+
+        return ecritureComptableList;
     }
 
 

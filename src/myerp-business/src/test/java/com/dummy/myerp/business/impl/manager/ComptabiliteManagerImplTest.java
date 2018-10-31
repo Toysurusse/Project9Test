@@ -1,11 +1,13 @@
 package com.dummy.myerp.business.impl.manager;
 
 import static org.junit.Assert.fail;
+import static org.mockito.Mockito.when;
 
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import com.dummy.myerp.consumer.dao.impl.db.dao.ComptabiliteDaoImpl;
 import com.dummy.myerp.technical.exception.NotFoundException;
 import org.junit.Assert;
 import org.junit.Before;
@@ -23,7 +25,8 @@ import com.dummy.myerp.model.bean.comptabilite.EcritureComptable;
 import com.dummy.myerp.model.bean.comptabilite.JournalComptable;
 import com.dummy.myerp.model.bean.comptabilite.LigneEcritureComptable;
 import com.dummy.myerp.technical.exception.FunctionalException;
-
+import org.mockito.Matchers;
+import org.mockito.Mockito;
 
 public class ComptabiliteManagerImplTest {
 
@@ -37,7 +40,11 @@ public class ComptabiliteManagerImplTest {
 
     @BeforeClass
     public static void setUpBeforeClass() throws Exception {
-        DaoProxy daoProxy = new DaoProxyMock(new ComptabiliteDaoMock());
+
+        ComptabiliteDaoMock comptabiliteDaoMock=new ComptabiliteDaoMock();
+        DaoProxy daoProxy = Mockito.mock(DaoProxy.class);
+
+        when(daoProxy.getComptabiliteDao().getListEcritureComptable()).thenReturn(comptabiliteDaoMock.getListEcritureComptable());
 
         ComptabiliteManagerImpl.configure(null, daoProxy, null);
 
@@ -89,7 +96,7 @@ public class ComptabiliteManagerImplTest {
 
         // id != expected
         try {
-            vEcritureComptable.setId(33);
+            vEcritureComptable.setId(-1);
 
             manager.checkEcritureComptableContext(vEcritureComptable);
             fail();
