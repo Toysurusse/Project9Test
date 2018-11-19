@@ -81,7 +81,7 @@ public class ComptabiliteManagerImplTest {
         try {
             EcritureComptable vEcritureComptable2 = new EcritureComptable();
             vEcritureComptable2.setReference(null);
-            manager.checkEcritureComptableContext(vEcritureComptable);
+            manager.checkEcritureComptableContext(vEcritureComptable2);
             fail();
         }
         catch (FunctionalException e) {
