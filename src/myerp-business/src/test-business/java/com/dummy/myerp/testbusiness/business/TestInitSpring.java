@@ -125,7 +125,6 @@ public class TestInitSpring extends BusinessTestCase {
     @org.junit.Test
     public void TestTotalCompte() throws NotFoundException, FunctionalException {
 
-        System.out.println("Test : "+manager.soldeCompteComptable(401));
         System.out.println("Test : "+manager.soldeCompteComptable(411));
         System.out.println("Test : "+manager.soldeCompteComptable(4456));
         System.out.println("Test : "+manager.soldeCompteComptable(4457));
