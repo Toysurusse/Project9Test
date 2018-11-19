@@ -286,10 +286,7 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
             }
         }
 
-            if (TotalCre.compareTo(TotalDeb)==0){
-                resultat="Equilibré";
-            }
-            else if (TotalDeb.compareTo(TotalCre)<0){
+            if (TotalDeb.compareTo(TotalCre)<0){
                 resultat="Débiteur";
             }
             else if (TotalDeb.compareTo(TotalCre)>0){
