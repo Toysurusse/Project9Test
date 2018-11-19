@@ -274,15 +274,18 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
             for (LigneEcritureComptable lec:ec.getListLigneEcriture()) {
                 System.out.println(lec.getCompteComptable());
                 if (lec.getCompteComptable().getNumero()==compteComptable){
-                    TotalCre=TotalCre.add(lec.getCredit());
-                    TotalDeb=TotalDeb.add(lec.getDebit());
+                    if(lec.getCredit()!=null) {
+                        TotalCre = TotalCre.add(lec.getCredit());
+                    }
+                    if(lec.getDebit()!=null) {
+                        TotalDeb = TotalDeb.add(lec.getDebit());
+                    }
                     System.out.println("Déb" + TotalDeb);
                     System.out.println("Créd" + TotalCre);
                 }
             }
         }
 
-        if(TotalCre!=null){
             if (TotalCre.compareTo(TotalDeb)==0){
                 resultat="Equilibré";
             }
@@ -292,7 +295,8 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
             else if (TotalDeb.compareTo(TotalCre)>0){
                 resultat="Créditeur";
             }
-        }
+
+
         if(resultat.equals("Compte comptable inexistant")){
             throw new FunctionalException("Le compte comptable n'éxiste pas");
         }
