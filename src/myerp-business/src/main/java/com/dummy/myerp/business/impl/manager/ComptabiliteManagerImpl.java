@@ -10,6 +10,7 @@ import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 
 import com.dummy.myerp.model.bean.comptabilite.*;
+import com.sun.org.apache.xpath.internal.SourceTree;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.transaction.TransactionStatus;
@@ -271,9 +272,12 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
 
         for (EcritureComptable ec:ecritureComptableList) {
             for (LigneEcritureComptable lec:ec.getListLigneEcriture()) {
+                System.out.println(lec.getCompteComptable());
                 if (lec.getCompteComptable().getNumero()==compteComptable){
                     TotalCre=ec.getTotalCredit();
                     TotalDeb=ec.getTotalDebit();
+                    System.out.println("Déb" + TotalDeb);
+                    System.out.println("Créd" + TotalCre);
                 }
             }
         }

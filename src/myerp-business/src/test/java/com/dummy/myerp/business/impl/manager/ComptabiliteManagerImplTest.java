@@ -76,18 +76,6 @@ public class ComptabiliteManagerImplTest {
     public void checkEcritureComptableContext() {
         String exception = ComptabiliteManagerImpl.RG6_EXCEPTION;
 
-
-        // ref == null
-        try {
-            EcritureComptable vEcritureComptable2 = new EcritureComptable();
-            vEcritureComptable2.setReference(null);
-            manager.checkEcritureComptableContext(vEcritureComptable2);
-            fail();
-        }
-        catch (FunctionalException e) {
-            Assert.assertEquals(exception, e.getMessage());
-        }
-
         // id != expected
         try {
             vEcritureComptable.setId(-1);
