@@ -132,8 +132,7 @@ public class TestInitSpring extends BusinessTestCase {
         System.out.println("Test : "+manager.soldeCompteComptable(4457).equals("Equilibré"));
         System.out.println("Test : "+manager.soldeCompteComptable(512).equals("Equilibré"));
         System.out.println("Test : "+manager.soldeCompteComptable(606).equals("Equilibré"));
-        System.out.println("Test : "+manager.soldeCompteComptable(607).equals("Equilibré"));
-
+        System.out.println("Test : "+manager.soldeCompteComptable(607));
     }
 
     @org.junit.Test(expected = FunctionalException.class)
