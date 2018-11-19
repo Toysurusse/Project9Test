@@ -271,7 +271,6 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
 
         for (EcritureComptable ec:ecritureComptableList) {
             for (LigneEcritureComptable lec:ec.getListLigneEcriture()) {
-                System.out.println(lec.getCompteComptable());
                 if (lec.getCompteComptable().getNumero()==compteComptable){
                     if(lec.getCredit()!=null) {
                         TotalCre = TotalCre.add(lec.getCredit());
@@ -279,8 +278,6 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
                     if(lec.getDebit()!=null) {
                         TotalDeb = TotalDeb.add(lec.getDebit());
                     }
-                    System.out.println("Déb" + TotalDeb);
-                    System.out.println("Créd" + TotalCre);
                 }
             }
         }
