@@ -19,3 +19,10 @@ script:
 after_success:
   - mvn --file ./src/pom.xml cobertura:cobertura -P test-consumer,test-business
   - bash <(curl -s https://codecov.io/bash)
+
+
+
+
+
+
+
