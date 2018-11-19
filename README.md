@@ -115,3 +115,5 @@ Il comporte :
 
 *   Dans la classe SpringRegistry de la couche business, modification de la variable CONTEXT_APPLI_LOCATION afin d'adapter le chemin d'accès au fichier bootstrapContext.xml qui est un conteneur Spring IoC, dans lequel on importe le businessContext.xml, consumerContext.xml et le datasourceContext.xml qui va redéfinir le bean dataSourceMYERP pour les tests
 
+
+
