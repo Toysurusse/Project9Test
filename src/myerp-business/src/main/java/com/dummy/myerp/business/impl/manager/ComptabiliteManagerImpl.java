@@ -267,15 +267,15 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
 
         List<EcritureComptable>ecritureComptableList=getDaoProxy().getComptabiliteDao().getListEcritureComptable();
 
-        BigDecimal TotalDeb=null;
-        BigDecimal TotalCre=null;
+        BigDecimal TotalDeb=new BigDecimal(0);
+        BigDecimal TotalCre=new BigDecimal(0);
 
         for (EcritureComptable ec:ecritureComptableList) {
             for (LigneEcritureComptable lec:ec.getListLigneEcriture()) {
                 System.out.println(lec.getCompteComptable());
                 if (lec.getCompteComptable().getNumero()==compteComptable){
-                    TotalCre=ec.getTotalCredit();
-                    TotalDeb=ec.getTotalDebit();
+                    TotalCre=TotalCre.add(lec.getCredit());
+                    TotalDeb=TotalDeb.add(lec.getDebit());
                     System.out.println("Déb" + TotalDeb);
                     System.out.println("Créd" + TotalCre);
                 }
