@@ -125,6 +125,7 @@ public class TestInitSpring extends BusinessTestCase {
     @org.junit.Test
     public void TestTotalCompte() throws NotFoundException, FunctionalException {
         Assert.assertTrue(manager.soldeCompteComptable(401).equals("Equilibré"));
+
     }
 
     @org.junit.Test(expected = FunctionalException.class)

@@ -77,7 +77,7 @@ public class ComptabiliteManagerImplTest {
         String exception = ComptabiliteManagerImpl.RG6_EXCEPTION;
 
 
-        // id == null
+        // ref == null
         try {
             vEcritureComptable.setReference(null);
             manager.checkEcritureComptableContext(vEcritureComptable);
