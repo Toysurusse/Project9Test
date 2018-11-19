@@ -40,10 +40,6 @@ public class ComptabiliteDaoMock {
         ecritureComptable.setDate(new Date(2016-12-31));
         ecritureComptableList.add(ecritureComptable);
 
-        System.out.println(ecritureComptable.getId());
-        System.out.println(ecritureComptableList.get(0).getId());
-
-
         //INSERT INTO MYERP.ecriture_comptable (id,journal_code,reference,date,libelle) VALUES (	-2,	'VE',	'VE-2016/00002',	'2016-12-30',	'TMA Appli Xxx'	);
         //INSERT INTO MYERP.ecriture_comptable (id,journal_code,reference,date,libelle) VALUES (	-3,	'BQ',	'BQ-2016/00003',	'2016-12-29',	'Paiement Facture F110001'	);
         //INSERT INTO MYERP.ecriture_comptable (id,journal_code,reference,date,libelle) VALUES (	-4,	'VE',	'VE-2016/00004',	'2016-12-28',	'TMA Appli Yyy'	);

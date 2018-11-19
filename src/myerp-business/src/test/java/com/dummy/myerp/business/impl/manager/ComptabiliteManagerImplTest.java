@@ -79,7 +79,7 @@ public class ComptabiliteManagerImplTest {
 
         // id == null
         try {
-            vEcritureComptable.setId(null);
+            vEcritureComptable.setReference(null);
             manager.checkEcritureComptableContext(vEcritureComptable);
             fail();
         }
@@ -90,7 +90,7 @@ public class ComptabiliteManagerImplTest {
         // id != expected
         try {
             vEcritureComptable.setId(-1);
-
+            vEcritureComptable.setReference("AC-2016/00001");
             manager.checkEcritureComptableContext(vEcritureComptable);
             fail();
         }

@@ -185,7 +185,7 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
             // Si l'écriture à vérifier est une nouvelle écriture (id == null),
             // ou si elle ne correspond pas à l'écriture trouvée (id != idECRef),
             // c'est qu'il y a déjà une autre écriture avec la même référence
-            if (pEcritureComptable.getId() == null) {
+            if (pEcritureComptable.getReference() == null) {
                 throw new FunctionalException("La référence d'une écriture comptable doit être unique.");
             }
             for (EcritureComptable ec:vECRef
