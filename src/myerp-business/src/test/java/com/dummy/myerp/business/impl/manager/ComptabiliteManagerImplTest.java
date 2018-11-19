@@ -79,7 +79,8 @@ public class ComptabiliteManagerImplTest {
 
         // ref == null
         try {
-            vEcritureComptable.setReference(null);
+            EcritureComptable vEcritureComptable2 = new EcritureComptable();
+            vEcritureComptable2.setReference(null);
             manager.checkEcritureComptableContext(vEcritureComptable);
             fail();
         }
