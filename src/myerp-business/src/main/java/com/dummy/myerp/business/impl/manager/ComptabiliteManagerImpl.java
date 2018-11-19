@@ -190,7 +190,7 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
             }
             for (EcritureComptable ec:vECRef
                  ) {
-                if (ec.getId()==pEcritureComptable.getId()){
+                if (ec.getReference().equals(pEcritureComptable.getReference())){
                     throw new FunctionalException("La référence d'une écriture comptable doit être unique.");
                 }
             }
