@@ -76,7 +76,6 @@ public class ComptabiliteManagerImplTest {
     public void checkEcritureComptableContext() {
         String exception = ComptabiliteManagerImpl.RG6_EXCEPTION;
 
-        // id != expected
         try {
             vEcritureComptable.setId(-1);
             vEcritureComptable.setReference("AC-2016/00001");
